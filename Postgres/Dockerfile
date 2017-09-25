@@ -9,11 +9,11 @@ RUN apt-get update \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR=$POSTGIS_VERSION \
            postgresql-$PG_MAJOR-postgis-$POSTGIS_MAJOR-scripts=$POSTGIS_VERSION \
            postgis=$POSTGIS_VERSION \
-      && rm -rf /var/lib/apt/lists/* 
+      && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /docker-entrypoint-initdb.d
 COPY ./initdb-postgis.sh /docker-entrypoint-initdb.d/postgis.sh
-COPY ./db-settings.sh /docker-entrypoint-initdb.d/db-settings.sh
 COPY ./update-postgis.sh /usr/local/bin
+COPY ./db-settings.sh /docker-entrypoint-initdb.d/zdb-settings.sh
 
-RUN chmod +x /docker-entrypoint-initdb.d/db-settings.sh
+RUN chmod +x /docker-entrypoint-initdb.d/zdb-settings.sh
