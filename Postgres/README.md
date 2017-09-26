@@ -4,7 +4,9 @@
 
     docker build -t postgres_mapd .
     docker run --name postgres_mapd -v /data/dbseminar/:/dbseminar -e POSTGRES_PASSWORD=mysecretpassword -d postgres_mapd
-
+	su postgres -c /dbseminar/nyc-taxi-data/initialize_database.sh 
+	su postgres -c /dbseminar/nyc-taxi-data/import_trip_data.sh 
+	
 
 The `mdillon/postgis` image provides a Docker container running Postgres 9 with [PostGIS 2.3](http://postgis.net/) installed. This image is based on the official [`postgres`](https://registry.hub.docker.com/_/postgres/) image and provides variants for each version of Postgres 9 supported by the base image (9.2-9.6).
 

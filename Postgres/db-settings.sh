@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o errexit
+	set -o errexit
 set -o pipefail
 set -o nounset
 
@@ -26,7 +26,7 @@ function alter_system() {
 		alter system set maintenance_work_mem = '96GB';
 		alter system set max_connections = '20';
 		alter system set random_page_cost = '1.1';
-		alter system set shared_buffers = '60GB';
+		alter system set shared_buffers = '96GB';
 		alter system set synchronous_commit = 'off';
 		alter system set temp_buffers = '120MB';
 		alter system set timezone = 'UTC';
