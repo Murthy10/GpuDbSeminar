@@ -1,0 +1,13 @@
+\BOOKMARK [0][-]{chapter.0}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.1}{GPU Databases}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Initial example}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{MapD}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Overview}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Basics}{chapter.2}% 6
+\BOOKMARK [0][-]{chapter.3}{Benchmark}{}% 7
+\BOOKMARK [1][-]{section.3.1}{NYC Taxi Rides}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{Queries}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter*.4}{References}{}% 11
+\BOOKMARK [0][-]{Appendix.1.A}{Appendix Installation}{}% 12
+\BOOKMARK [1][-]{section.1.A.1}{Repositories}{Appendix.1.A}% 13
