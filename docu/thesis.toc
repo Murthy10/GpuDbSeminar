@@ -1,0 +1,23 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
+\contentsline {chapter}{\numberline {2}GPU Databases}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Initial example}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}General}{5}{subsection.2.1.1}
+\contentsline {chapter}{\numberline {3}MapD}{6}{chapter.3}
+\contentsline {section}{\numberline {3.1}Functional Properties}{7}{section.3.1}
+\contentsline {paragraph}{\nonumberline Storage system}{7}{section*.4}
+\contentsline {paragraph}{\nonumberline Storage model}{7}{section*.5}
+\contentsline {paragraph}{\nonumberline Processing model}{7}{section*.6}
+\contentsline {paragraph}{\nonumberline Query placement}{7}{section*.7}
+\contentsline {paragraph}{\nonumberline Optimization}{7}{section*.8}
+\contentsline {paragraph}{\nonumberline Transactions}{7}{section*.9}
+\contentsline {section}{\numberline {3.2}Overview}{8}{section.3.2}
+\contentsline {section}{\numberline {3.3}Basics}{9}{section.3.3}
+\contentsline {chapter}{\numberline {4}Benchmark}{10}{chapter.4}
+\contentsline {section}{\numberline {4.1}NYC Taxi Rides}{11}{section.4.1}
+\contentsline {section}{\numberline {4.2}Queries}{12}{section.4.2}
+\contentsline {section}{\numberline {4.3}Results}{13}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{14}{chapter.5}
+\contentsline {chapter}{Glossary}{14}{chapter.5}
+\contentsline {chapter}{\numberline {A}Architecture}{15}{appendix.A}
+\contentsline {chapter}{Bibliography}{17}{section*.12}

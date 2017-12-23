@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper,oneside,parskip=half,DIV=8,BCOR=10mm]{scrbook}
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.0} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables?
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+
+\makeatletter
+\let\@tmp\@xfloat
+\usepackage{fixltx2e}
+\let\@xfloat\@tmp
+\makeatother
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[usenames,dvipsnames]{xcolor} %color changes
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[normalem]{ulem}
+\usepackage{stmaryrd}
+\usepackage{csquotes}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{fancyvrb}
+\usepackage{pdfpages}
+\usepackage{rotating}
+\usepackage{siunitx}
+\sisetup{math-micro=\text{µ},text-micro=µ}
+\usepackage{glossaries}
+\usepackage{gensymb}
+\usepackage{wrapfig}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{fontspec}
+\input{codeformatting}
+
+\usepackage[backend=biber,style=alphabetic]{biblatex}
+\addbibresource{database.bib}
+
+\title{GPU Databases}
+\subtitle{}
+\subject{Seminar}
+\author{Samuel Kurath}
+\date{MSE Database Seminar - Fall 2017}
+\publishers{Supervised by Prof. Stefan Keller}
+
+
+\hypersetup{
+	pdfauthor={Samuel Kurath},
+	pdftitle={GPU Databases},
+	hidelinks
+}
+
+\include{glossary}
+
+\makeglossaries
+
+\begin{document}
+
+\includepdf[pages={1}]{pdfs/Gpu_Seminar_Titel.pdf}
+\cleardoublepage
+
+\let\oldsection\section
+\renewcommand\section{\clearpage\oldsection}
+
+\pagestyle{headings}
+\setcounter{page}{1}
+\pagenumbering{Roman}
+
+\input{00_abstract}
+\cleardoublepage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\tableofcontents
+
+\input{01_introduction}
+
+\input{02_gpu_database}
+
+\input{03_mapd}
+
+\input{04_benchmark}
+
+\input{05_conclusion}
+
+
+
+\printglossaries
+\addcontentsline{toc}{chapter}{Glossary}
+
+
+\appendix
+
+\input{99_architecture}
+
+\input{99_appendices}
+
+
+
+\cleardoublepage
+
+\phantomsection
+
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\printbibliography
+
+\end{document}

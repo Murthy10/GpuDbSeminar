@@ -1,0 +1,90 @@
+\ifglsentryexists{Azimuth}{}%
+{%
+\gls@defglossaryentry{Azimuth}%
+{%
+name={Azimuth},%
+sort={Azimuth},%
+type={main},%
+first={Azimuth},%
+firstplural={Azimuths},%
+text={Azimuth},%
+plural={Azimuths},%
+description={Degrees of rotation about the z axis. The angle between the device's current compass direction and magnetic north},%
+descriptionplural={Degrees of rotation about the z axis. The angle between the device's current compass direction and magnetic north},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{Pitch}{}%
+{%
+\gls@defglossaryentry{Pitch}%
+{%
+name={Pitch},%
+sort={Pitch},%
+type={main},%
+first={Pitch},%
+firstplural={Pitchs},%
+text={Pitch},%
+plural={Pitchs},%
+description={Degrees of rotation about the x axis. The angle between a plane parallel to the device's screen and a plane parallel to the ground},%
+descriptionplural={Degrees of rotation about the x axis. The angle between a plane parallel to the device's screen and a plane parallel to the ground},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{Roll}{}%
+{%
+\gls@defglossaryentry{Roll}%
+{%
+name={Roll},%
+sort={Roll},%
+type={main},%
+first={Roll},%
+firstplural={Rolls},%
+text={Roll},%
+plural={Rolls},%
+description={Degrees of rotation about the y axis. The angle between a plane perpendicular to the device's screen and a plane perpendicular to the ground},%
+descriptionplural={Degrees of rotation about the y axis. The angle between a plane perpendicular to the device's screen and a plane perpendicular to the ground},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
