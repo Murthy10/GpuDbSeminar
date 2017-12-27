@@ -7,9 +7,9 @@
 \BOOKMARK [1][-]{section.3.1}{Overview}{chapter.3}% 7
 \BOOKMARK [2][-]{subsection.3.1.1}{Data\040Definition\040Language\040\(DDL\)}{section.3.1}% 8
 \BOOKMARK [2][-]{subsection.3.1.2}{Data\040Manipulation\040Language\040\(DML\)}{section.3.1}% 9
-\BOOKMARK [2][-]{subsection.3.1.3}{Data\040Import\040and\040Export}{section.3.1}% 10
-\BOOKMARK [2][-]{subsection.3.1.4}{Client\040interfaces}{section.3.1}% 11
-\BOOKMARK [1][-]{section.3.2}{Basics}{chapter.3}% 12
+\BOOKMARK [2][-]{subsection.3.1.3}{Data\040import}{section.3.1}% 10
+\BOOKMARK [2][-]{subsection.3.1.4}{Data\040export}{section.3.1}% 11
+\BOOKMARK [2][-]{subsection.3.1.5}{Client\040interfaces}{section.3.1}% 12
 \BOOKMARK [0][-]{chapter.4}{Benchmark}{}% 13
 \BOOKMARK [1][-]{section.4.1}{NYC\040Taxi\040Rides}{chapter.4}% 14
 \BOOKMARK [1][-]{section.4.2}{Queries}{chapter.4}% 15
@@ -17,4 +17,4 @@
 \BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 17
 \BOOKMARK [0][-]{chapter.5}{Glossary}{}% 18
 \BOOKMARK [0][-]{appendix.A}{Architecture}{}% 19
-\BOOKMARK [0][-]{section*.26}{Bibliography}{}% 20
+\BOOKMARK [0][-]{section*.27}{Bibliography}{}% 20

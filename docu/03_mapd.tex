@@ -26,7 +26,7 @@ MapD Immerse is a tool for visual analytics on top of MapD Core SQL engine.
 \end{figure}
 
 
-
+\newpage
 \subsection{Functional Properties}
 Related to the excellent Survey of Sebastian Bress et al. \cite{bress2014gpu} MapD has the following functional properties.
 
@@ -135,7 +135,7 @@ But they are in development, since MapD don't want to compromising the speed muc
 
 Furthermore, MapD provides operations like EXPLAIN, LIKELY/UNLIKELY, Aggregate Functions and Conditional Expressions to improve the DML operations and extend the functionality.
 
-\subsection{Data Import and Export}
+\subsection{Data import}
 MapD allows to import data from different sources as you can see in the following section.
 
 \subsubsection{COPY FROM}
@@ -150,13 +150,21 @@ The StreamInsert program could be attached at the end of a real-time stream proc
 \subsubsection{HDFS}
 The tool sqoop-export offers the possibility to import CSV or Parquet files from a HDFS file system into MapD database.
 
+\subsection{Data export}
+To export data from MapD, mapdql provides the command COPY TO that allows to export the result of a SELECT statement to a file.
+For example like:
+\begin{itemize}
+ \item COPY (SELECT * FROM tweets) TO '/tmp/tweets.csv';
+\end{itemize}
 
 
+\newpage
 \subsection{Client interfaces}
 MapD provides a tool called mapdql \cite{mapdql} as a client-side SQL console that displays query results you submit to the MapD Core Server.
 The counterpart of PostgreSQL is psql \cite{psql}.
 
 \subsubsection{Database connection}
+To following commands compares the connection to MapD respectively PostgreSQL with mapdql and psql.
 \begin{itemize}[noitemsep]
  \item[mapdql:]  mapdql <database>  -u <user> -p <password> --port <port> -s <host>
  \item[pgsql:]  psql -h <host> -p <port> -U <user> -W <password> <database>
@@ -173,7 +181,7 @@ Command & mapdql & pgsql  \\
 \hline
 	List databases & \textbackslash l &  \textbackslash l \\
 	List tables in database & \textbackslash t &  \textbackslash d \\
-	Describe a table & \textbackslash d <table> & \textbackslash d <table> \\
+	Describe a table & \textbackslash d <table> & \textbackslash t <table> \\
 	Connect to a database &  \textbackslash c  & \textbackslash c \\
 	Print timing information & \textbackslash timing & \textbackslash timing \\
 	Switch to GPU mode & \textbackslash gpu & - \\
@@ -185,11 +193,14 @@ Command & mapdql & pgsql  \\
 \label{tab:commands}
 \end{table}
 
-
-
-
-\section{Basics}
-Installation,
-mapdql,
-similar to postgres \textbackslash t \textbackslash d
-etc.
+\subsubsection{Alternative interfaces}
+Beside of mapdql MapD provides the following interfaces:
+\begin{itemize}
+ \item JDBC
+ \item ODBC
+ \item pymapd
+ \item Python JayDeBeApi
+ \item SQuirreL SQL
+ \item RJDBC
+ \item Apache Thrift
+\end{itemize}
