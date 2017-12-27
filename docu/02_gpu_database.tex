@@ -40,11 +40,16 @@ The advantages of column stores are tasks like aggregations, though row stores a
 
 \subsubsection{Processing model}
 There are two processing models in modern databases tuple-at-a-time and operator-at-a-time.
+The Tuple-at-a-time is similar to an iterator, which iterates over the relevant tuples and applies the operations.
+The Operator-at-a-time fits to GPUs, since it applies the same operation on a bulk of data.
 
 \subsubsection{Query processing}
+GPU database systems are able to use the GPU and the CPU, hence it is necessary to choose the right processor for the right task.
+\paragraph{Query placement} It is a extremely difficult task to decide which processing device is the most accurate for the current query.
+\paragraph{Optimization} To optimize the performance in therms of query execution time several factors are include.
+For example the operations, the data, hardware specifications and even more.
 
 \subsubsection{Transaction support}
+An other problem are transactions and consistency on GPUs, until now there is almost no research done in this area.
+Thus most of the GPU database don't support transactions.
 
-\newpage
-
-\subsection{General}
