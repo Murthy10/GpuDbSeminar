@@ -30,16 +30,17 @@ MapD Immerse is a tool for visual analytics on top of MapD Core SQL engine.
 \subsection{Functional Properties}
 Related to the excellent Survey of Sebastian Bress et al. \cite{bress2014gpu} MapD has the following functional properties.
 
-\paragraph{Storage system} MapD has got a relational DBMS that is able to handle data amounts bigger than the memory space.
+\subsubsection{Storage system} MapD has got a relational DBMS that is able to handle data amounts bigger than the memory space.
 But tries to hold as much data as possible in-memory to to improve the performance.
-\paragraph{Storage model} MapD uses a columnar layout to store the data and uses so called chunks, which split the columns in smaller pieces.
+\subsubsection{Storage model} MapD uses a columnar layout to store the data and uses so called chunks, which split the columns in smaller pieces.
 The chunks are the basic units of the memory manager.
 \paragraph{Processing model} MapD processes on operator-at-a-time or one chunk per operation. Thus it is a block-oriented processing.
 The queries are compiled for the CPU and the GPU.
+\subsubsection{Query processing}
 \paragraph{Query placement} In contrast to \cite{bress2014gpu} the gained experience with MapD showed that MapD tries to run the queries on the GPU even if there isn't enough space and isn't able to handle such queries on his own.
-°Hence the user had to switch the execution mode from GPU to CPU.
+Hence the user has to switch the execution mode from GPU to CPU.
 \paragraph{Optimization} MapD's optimizer tries to execute the queries on the most suitable device, like text searching using an index on the CPU and table scans on the GPU.
-\paragraph{Transactions} MapD does not support transactions.
+\subsubsection{Transactions support} MapD does not support transactions.
 
 
 \newpage

@@ -19,6 +19,40 @@
 
 \refsection{0}
   \sortlist[entry]{anyt/global}
+    \entry{abadi2008column}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=ff1f8106e94c8a35b9a6e04e9f83cc74}{%
+           family={Abadi},
+           family_i={A\bibinitperiod},
+           given={Daniel\bibnamedelima J},
+           given_i={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=57496be16b78c68f3cc3a705283c271c}{%
+           family={Madden},
+           family_i={M\bibinitperiod},
+           given={Samuel\bibnamedelima R},
+           given_i={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=fd41bd2a80ff67201d3882f42b73dec1}{%
+           family={Hachem},
+           family_i={H\bibinitperiod},
+           given={Nabil},
+           given_i={N\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{ef6e02583b5904390cd1789c715024b2}
+      \strng{fullhash}{ef6e02583b5904390cd1789c715024b2}
+      \field{labelalpha}{AMH08}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2008 ACM SIGMOD international conference on Management of data}
+      \field{title}{Column-stores vs. row-stores: How different are they really?}
+      \field{year}{2008}
+      \field{pages}{967\bibrangedash 980}
+      \range{pages}{14}
+    \endentry
     \entry{bress2014gpu}{incollection}{}
       \name{author}{5}{}{%
         {{hash=d12cc6a16205163ecb7bd8c4b0eacfd9}{%
@@ -131,7 +165,7 @@
       \verb https://www.postgresql.org/docs/10/static/app-psql.html
       \endverb
     \endentry
-    \entry{mapddatatype}{online}{}
+    \entry{ddl}{online}{}
       \name{author}{1}{}{%
         {{hash=b3cd636c03c486d5b344f8c9042be207}{%
            family={MapD\bibnamedelima Technologies},
@@ -145,6 +179,29 @@
       \field{sortinit}{M}
       \field{sortinithash}{2684bec41e9697b92699b46491061da2}
       \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Data Definition (DDL)}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/docs/latest/mapd-core-guide/data-definition/
+      \endverb
+    \endentry
+    \entry{mapddatatype}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b3cd636c03c486d5b344f8c9042be207}{%
+           family={MapD\bibnamedelima Technologies},
+           family_i={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Inc.},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3cd636c03c486d5b344f8c9042be207}
+      \strng{fullhash}{b3cd636c03c486d5b344f8c9042be207}
+      \field{labelalpha}{Map17}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{extraalpha}{2}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -167,7 +224,7 @@
       \field{labelalpha}{Map17}
       \field{sortinit}{M}
       \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{extraalpha}{2}
+      \field{extraalpha}{3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -190,7 +247,7 @@
       \field{labelalpha}{Map17}
       \field{sortinit}{M}
       \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{extraalpha}{3}
+      \field{extraalpha}{4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -213,7 +270,7 @@
       \field{labelalpha}{Map17}
       \field{sortinit}{M}
       \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{extraalpha}{4}
+      \field{extraalpha}{5}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{12}
@@ -224,7 +281,6 @@
       \endverb
     \endentry
   \endsortlist
-  \missing{ddl}
 \endrefsection
 \endinput
 

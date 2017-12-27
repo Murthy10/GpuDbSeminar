@@ -1,8 +1,49 @@
 \chapter{GPU Databases}
+Related to the massive amount of data that is collected nowadays, the stagnation of CPU speed
+and the trend to use the GPU for tasks like machine learning, the database developers have discovered the GPU to improve the performance of their products, too.
+Hence the main idea of GPU databases is to perform some operations on the GPU for acceleration purposes.
+
+\paragraph{Strengths}
+GPUs do have their strengths on parallelable tasks.
+This is due to the fact that GPUs can have thousands of cores and high bandwidth memory on each card.
+Thus most of the GPU databases products focus on analytics.
 
 
+\paragraph{Weaknesses} Beside of these strengths, GPU database host several pitfalls like transfer of the data from the CPU to the GPU,
+ the memory limitations and the massiv costs of GPU servers.
 
-\section{Initial example}
+
+\section{Components of a GPU database}
+The current section will give you an overview of the components a GPU database consists of.
+The paper \cite{bress2014gpu} of Sebastian Bress et al. does split the components into Functional and Non-Functional properties.
+Since those categories are reasonable they are used in this paper as well.
+The interesting Non-Functional properties of GPU database are performance and portability.
+The next sub section will explain and list the Functional Properties.
+
+\subsection{Functional properties}
+
+\subsubsection{Storage system}
+If we talk about storage systems there are several scenarios conceivable.
+First we the Video Random Access Memory (VRAM) of the GPUs we have an additional storage medium next to the Random-Access Memory (RAM) and the hard disk.
+The different mediums provides different advantages and disadvantages.
+Hard disks are persistent, cheap and have a huge capacity.
+Unfortunately they are pretty slow.
+Random-Access Memory is very fast compared to hard disks but the transfer to the GPU is still a bottleneck and it isn't a persistent storage, either.
+With Video Random Access Memory the bottleneck of the transfer disappears, but most of the time the storage capacity is highly limited.
+
+\subsubsection{Storage model}
+In terms of storage model, there are row stores or column stores \cite{abadi2008column}.
+Row stores store table records in a sequence of rows.
+Column stores store table records in a sequence of columns, the entries of a column is stored in contiguous memory locations.
+The advantages of column stores are tasks like aggregations, though row stores are more efficient if the result of a query returns multiple rows.
+
+
+\subsubsection{Processing model}
+There are two processing models in modern databases tuple-at-a-time and operator-at-a-time.
+
+\subsubsection{Query processing}
+
+\subsubsection{Transaction support}
 
 \newpage
 
