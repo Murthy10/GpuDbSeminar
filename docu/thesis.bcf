@@ -2051,8 +2051,19 @@
     <bcf:datasource type="file" datatype="bibtex">database.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">bress2014gpu</bcf:citekey>
-    <bcf:citekey order="2">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="1">mapdcore</bcf:citekey>
+    <bcf:citekey order="2">immerse</bcf:citekey>
+    <bcf:citekey order="3">filtering</bcf:citekey>
+    <bcf:citekey order="4">filtering</bcf:citekey>
+    <bcf:citekey order="5">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="6">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="7">ddl</bcf:citekey>
+    <bcf:citekey order="8">mapddatatype</bcf:citekey>
+    <bcf:citekey order="9">postgresdatatype</bcf:citekey>
+    <bcf:citekey order="10">mapddatatype</bcf:citekey>
+    <bcf:citekey order="11">postgresdatatype</bcf:citekey>
+    <bcf:citekey order="12">mapdql</bcf:citekey>
+    <bcf:citekey order="13">psql</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="anyt/global" type="entry" sortscheme="anyt" sortnamekeyscheme="global">
   <bcf:sorting>

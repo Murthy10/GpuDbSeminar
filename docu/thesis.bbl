@@ -63,7 +63,168 @@
       \field{pages}{1\bibrangedash 35}
       \range{pages}{35}
     \endentry
+    \entry{filtering}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e8985728e27560c33c53efe24a0cdaf9}{%
+           family={Dupree},
+           family_i={D\bibinitperiod},
+           given={Tai},
+           given_i={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{e8985728e27560c33c53efe24a0cdaf9}
+      \strng{fullhash}{e8985728e27560c33c53efe24a0cdaf9}
+      \field{labelalpha}{Dup17}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Quick Insight with MapD Immerse Cross Filtering}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/blog/2017/04/14/quick-insight-with-mapd-immerse-cross-filtering/
+      \endverb
+    \endentry
+    \entry{postgresdatatype}{online}{}
+      \name{author}{1}{}{%
+        {{hash=dd7a80668793754547b612cf1779f6dd}{%
+           family={Group},
+           family_i={G\bibinitperiod},
+           given={The\bibnamedelimb PostgreSQL\bibnamedelimb Global\bibnamedelima Development},
+           given_i={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd7a80668793754547b612cf1779f6dd}
+      \strng{fullhash}{dd7a80668793754547b612cf1779f6dd}
+      \field{labelalpha}{Gro17}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Chapter 8. Data Types}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.postgresql.org/docs/10/static/datatype.html
+      \endverb
+    \endentry
+    \entry{psql}{online}{}
+      \name{author}{1}{}{%
+        {{hash=dd7a80668793754547b612cf1779f6dd}{%
+           family={Group},
+           family_i={G\bibinitperiod},
+           given={The\bibnamedelimb PostgreSQL\bibnamedelimb Global\bibnamedelima Development},
+           given_i={T\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{dd7a80668793754547b612cf1779f6dd}
+      \strng{fullhash}{dd7a80668793754547b612cf1779f6dd}
+      \field{labelalpha}{Gro17}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{psql}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.postgresql.org/docs/10/static/app-psql.html
+      \endverb
+    \endentry
+    \entry{mapddatatype}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b3cd636c03c486d5b344f8c9042be207}{%
+           family={MapD\bibnamedelima Technologies},
+           family_i={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Inc.},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3cd636c03c486d5b344f8c9042be207}
+      \strng{fullhash}{b3cd636c03c486d5b344f8c9042be207}
+      \field{labelalpha}{Map17}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{extraalpha}{1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Datatypes and Fixed Encoding}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/docs/latest/mapd-core-guide/fixed-encoding/
+      \endverb
+    \endentry
+    \entry{mapdcore}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b3cd636c03c486d5b344f8c9042be207}{%
+           family={MapD\bibnamedelima Technologies},
+           family_i={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Inc.},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3cd636c03c486d5b344f8c9042be207}
+      \strng{fullhash}{b3cd636c03c486d5b344f8c9042be207}
+      \field{labelalpha}{Map17}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{extraalpha}{2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{MapD Core - In-Memory, Open Source SQL engine}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/platform/core/
+      \endverb
+    \endentry
+    \entry{immerse}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b3cd636c03c486d5b344f8c9042be207}{%
+           family={MapD\bibnamedelima Technologies},
+           family_i={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Inc.},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3cd636c03c486d5b344f8c9042be207}
+      \strng{fullhash}{b3cd636c03c486d5b344f8c9042be207}
+      \field{labelalpha}{Map17}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{extraalpha}{3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{MapD Immerse Visual Analytics}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/platform/immerse/
+      \endverb
+    \endentry
+    \entry{mapdql}{online}{}
+      \name{author}{1}{}{%
+        {{hash=b3cd636c03c486d5b344f8c9042be207}{%
+           family={MapD\bibnamedelima Technologies},
+           family_i={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           given={Inc.},
+           given_i={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3cd636c03c486d5b344f8c9042be207}
+      \strng{fullhash}{b3cd636c03c486d5b344f8c9042be207}
+      \field{labelalpha}{Map17}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{extraalpha}{4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{mapdql}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.mapd.com/docs/latest/mapd-core-guide/mapdql/
+      \endverb
+    \endentry
   \endsortlist
+  \missing{ddl}
 \endrefsection
 \endinput
 
