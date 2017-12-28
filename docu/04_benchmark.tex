@@ -138,20 +138,23 @@ As already mentioned the queries of the benchmark were applied on a database wit
 in our case PostgreSQL 10.0 and a on MapD 3.3.1 a GPU powered database.
 The dataset was introduced in section~\ref{sec:dataset} and the queries are listed in the section~\ref{sec:queries}.
 
+\subsection{Data PostgreSQL vs. MapD cold}
+The diagram \ref{fig:cold_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD at the first time (cold).
+That means there might are no caching effects influencing the measurement.
 
 \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.6\textwidth}
+  \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
     \captionof{figure}{Diagram PostgreSQL vs. MapD cold}
     \label{fig:cold_postgres_vs_mapd}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[b]{0.39\textwidth}
     \centering
-  \begin{tabular}{ |l|l|l| }
+  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
     \hline
-    Query & PostgreSQL & MapD \\
+    Query & PostgreSQL [ms] & MapD [ms] \\
     \hline
     1 & 64878 & 203 \\
     2 & 74404 & 456 \\
@@ -171,18 +174,18 @@ The dataset was introduced in section~\ref{sec:dataset} and the queries are list
 
 
 \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.6\textwidth}
+  \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/warm_postgres_vs_mapd.png}
     \captionof{figure}{Diagram PostgreSQL vs. MapD warm}
     \label{fig:warm_postgres_vs_mapd}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[b]{0.39\textwidth}
     \centering
-  \begin{tabular}{ |l|l|l| }
+  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
     \hline
-    Query & PostgreSQL & MapD \\
+    Query & PostgreSQL [ms] & MapD [ms] \\
     \hline
     1 & 62684 & 41 \\
     2 & 75140 & 223 \\
@@ -203,18 +206,18 @@ The dataset was introduced in section~\ref{sec:dataset} and the queries are list
 
 
  \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.6\textwidth}
+  \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/postgres_cold_vs_warm.png}
     \captionof{figure}{Diagram PostgreSQL cold vs. PostgreSQL warm}
     \label{fig:postgres_cold_vs_warm}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[b]{0.39\textwidth}
     \centering
-  \begin{tabular}{ |l|p{2cm}|p{2cm}| }
+  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
     \hline
-    Query & PostgreSQL cold & PostgreSQL warm \\
+    Query & PostgreSQL cold [ms] & PostgreSQL warm [ms] \\
     \hline
     1 & 64878 & 62684 \\
     2 & 74404 & 75140 \\
@@ -235,18 +238,18 @@ The dataset was introduced in section~\ref{sec:dataset} and the queries are list
 
 
   \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.6\textwidth}
+  \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/mapd_cold_vs_warm.png}
     \captionof{figure}{Diagram MapD cold vs. MapD warm}
     \label{fig:mapd_cold_vs_warm}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.4\textwidth}
+  \begin{minipage}[b]{0.39\textwidth}
     \centering
-  \begin{tabular}{ |l|p{2cm}|p{2cm}| }
+  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
     \hline
-    Query & MapD cold & MapD warm \\
+    Query & MapD cold [ms] & MapD warm [ms]\\
     \hline
     1 & 203 & 41 \\
     2 & 456 & 223 \\
