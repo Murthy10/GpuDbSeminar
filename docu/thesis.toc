@@ -46,7 +46,7 @@
 \contentsline {subsection}{\numberline {4.1.2}Data subset}{12}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Queries}{13}{section.4.2}
 \contentsline {section}{\numberline {4.3}Results}{15}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion}{16}{chapter.5}
-\contentsline {chapter}{Glossary}{16}{chapter.5}
-\contentsline {chapter}{\numberline {A}Architecture}{17}{appendix.A}
-\contentsline {chapter}{Bibliography}{19}{section*.37}
+\contentsline {chapter}{\numberline {5}Conclusion}{17}{chapter.5}
+\contentsline {chapter}{Glossary}{17}{chapter.5}
+\contentsline {chapter}{\numberline {A}Architecture}{18}{appendix.A}
+\contentsline {chapter}{Bibliography}{20}{section*.37}

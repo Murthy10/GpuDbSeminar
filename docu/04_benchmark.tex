@@ -140,27 +140,126 @@ The dataset was introduced in section~\ref{sec:dataset} and the queries are list
 
 
 \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.49\textwidth}
+  \begin{minipage}[b]{0.6\textwidth}
     \centering
-     \includegraphics[width=0.3\textwidth,height=0.3\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
-    \captionof{figure}{A table beside a figure}
+     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
+    \captionof{figure}{Diagram PostgreSQL vs. MapD cold}
     \label{fig:cold_postgres_vs_mapd}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{0.49\textwidth}
+  \begin{minipage}[b]{0.4\textwidth}
     \centering
-  \begin{tabular}{ |l|l|l|l|l|l| }
-\hline
-\multicolumn{3}{| l |}{Raw acceleration} & \multicolumn{3}{| l |}{Processed acceleration}  \\
-\hline
-x & y & z & x & x & z \\
-\hline
--6.160 & 7.185 & 3.235 & -0.021 & -0.094 & 10.001 \\
--6.153 & 7.204 & 3.220 & -0.042 & -0.106 & 10.006 \\
--6.174 & 7.170 & 3.356 & -0.023 & -0.015 &  10.041 \\
--6.174 & 7.173 & 3.416 & -0.033 & -0.069 & 10.062 \\
-\hline
+  \begin{tabular}{ |l|l|l| }
+    \hline
+    Query & PostgreSQL & MapD \\
+    \hline
+    1 & 64878 & 203 \\
+    2 & 74404 & 456 \\
+    3 & 145749 & 742 \\
+    4 & 172592 & 1.431 \\
+    5 & 2556 & 663 \\
+    6 & 89029 & 5.756 \\
+    7 & 150823 & 119 \\
+    8 & 152883 & 315 \\
+    9 & 87535 & 243 \\
+    \hline
 \end{tabular}
-      \captionof{table}{A table beside a figure}
+      \captionof{table}{Data PostgreSQL vs. MapD cold}
+            \label{tab:cold_postgres_vs_mapd}
     \end{minipage}
+ \end{minipage}
+
+
+\begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.6\textwidth}
+    \centering
+     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/warm_postgres_vs_mapd.png}
+    \captionof{figure}{Diagram PostgreSQL vs. MapD warm}
+    \label{fig:warm_postgres_vs_mapd}
   \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \centering
+  \begin{tabular}{ |l|l|l| }
+    \hline
+    Query & PostgreSQL & MapD \\
+    \hline
+    1 & 62684 & 41 \\
+    2 & 75140 & 223 \\
+    3 & 142338 & 412 \\
+    4 & 172052 & 840 \\
+    5 & 1685 & 25 \\
+    6 & 84439 & 149 \\
+    7 & 150073 & 86 \\
+    8 & 155107 & 115 \\
+    9 & 86060 & 131 \\
+    \hline
+\end{tabular}
+      \captionof{table}{Data PostgreSQL vs. MapD warm}
+            \label{tab:warm_postgres_vs_mapd}
+    \end{minipage}
+ \end{minipage}
+
+
+
+ \begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.6\textwidth}
+    \centering
+     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/postgres_cold_vs_warm.png}
+    \captionof{figure}{Diagram PostgreSQL cold vs. PostgreSQL warm}
+    \label{fig:postgres_cold_vs_warm}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \centering
+  \begin{tabular}{ |l|p{2cm}|p{2cm}| }
+    \hline
+    Query & PostgreSQL cold & PostgreSQL warm \\
+    \hline
+    1 & 64878 & 62684 \\
+    2 & 74404 & 75140 \\
+    3 & 145749 & 142338 \\
+    4 & 172592 & 172052 \\
+    5 & 2556 & 1685 \\
+    6 & 89029 & 84439 \\
+    7 & 150823 & 150073 \\
+    8 & 152883 & 155107 \\
+    9 & 87535 & 86060 \\
+    \hline
+\end{tabular}
+      \captionof{table}{Data PostgreSQL cold vs. PostgreSQL warm}
+            \label{tab:postgres_cold_vs_warm}
+    \end{minipage}
+ \end{minipage}
+
+
+
+  \begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.6\textwidth}
+    \centering
+     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/mapd_cold_vs_warm.png}
+    \captionof{figure}{Diagram MapD cold vs. MapD warm}
+    \label{fig:mapd_cold_vs_warm}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.4\textwidth}
+    \centering
+  \begin{tabular}{ |l|p{2cm}|p{2cm}| }
+    \hline
+    Query & MapD cold & MapD warm \\
+    \hline
+    1 & 203 & 41 \\
+    2 & 456 & 223 \\
+    3 & 742 & 412 \\
+    4 & 1.431 & 840 \\
+    5 & 663 & 25 \\
+    6 & 5.756 & 149 \\
+    7 & 119 & 86 \\
+    8 & 315 & 115 \\
+    9 & 243 & 131 \\
+    \hline
+\end{tabular}
+      \captionof{table}{Data MapD cold vs. MapD warm}
+            \label{tab:mapd_cold_vs_warm}
+    \end{minipage}
+ \end{minipage}
