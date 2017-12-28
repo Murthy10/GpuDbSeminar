@@ -1,9 +1,0 @@
-\begin{thebibliography}{}
-
-\bibitem[Bre{\ss} et~al., 2014]{bress2014gpu}
-Bre{\ss}, S., Heimel, M., Siegmund, N., Bellatreche, L., \& Saake, G. (2014).
-\newblock Gpu-accelerated database systems: Survey and open challenges.
-\newblock In {\em Transactions on Large-Scale Data-and Knowledge-Centered
-  Systems XV}  (pp.\ 1--35). Springer.
-
-\end{thebibliography}

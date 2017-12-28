@@ -43,9 +43,6 @@ Hence the user has to switch the execution mode from GPU to CPU.
 \subsubsection{Transactions support} MapD doesn't not support transactions and doesn't support UPDATE or DELETE operations on the inserted data, either.
 That could be related to the difficult task of handling persistence between the CPU and GPU or even distributed systems at all.
 
-\subsection{Proposed architecture}
-The paper \cite{bress2014gpu} proposes an architecture with an in-memory storage, using a column oriented storage, an operator-at-a-time processing model, cross device processing and no transaction support.
-
 
 \newpage
 \section{Overview}
@@ -57,7 +54,7 @@ Often there will be a comparison between MapD and PostgreSQL to point out the di
 
 \subsection{Data Definition Language (DDL)}
 The DDL seams familiar since it uses SQL syntax \cite{ddl}.
-The syntax to handle users, databases, tables, and views is as listed below.
+The syntax to handle users, databases, tables, and views is listed below.
 
 \paragraph{User}
 \begin{itemize}

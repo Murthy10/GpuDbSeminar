@@ -12,6 +12,7 @@
 \contentsline {paragraph}{\nonumberline Query placement}{4}{section*.9}
 \contentsline {paragraph}{\nonumberline Optimization}{4}{section*.10}
 \contentsline {subsubsection}{\nonumberline Transaction support}{4}{section*.11}
+\contentsline {subsection}{\numberline {2.1.2}Proposed architecture}{4}{subsection.2.1.2}
 \contentsline {chapter}{\numberline {3}MapD}{5}{chapter.3}
 \contentsline {subsection}{\numberline {3.0.1}Functional Properties}{6}{subsection.3.0.1}
 \contentsline {subsubsection}{\nonumberline Storage system}{6}{section*.14}
