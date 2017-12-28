@@ -7,39 +7,32 @@
 \definecolor{directivecolor}{rgb}{0, 0, 0}
 \newfontfamily\listingsfont[Scale=.8]{Roboto}
 
-\lstdefinelanguage{CustomAndroid}[]{C++} {
-	morekeywords    = {*, func, var, let, nil, guard, protocol, extension, import, in, inout, typealias, associatedtype, precedencegroup},
-	directivestyle  = \listingsfont\bfseries\color{directivecolor},
-	morecomment=[n]{/*}{*/},    % allows for nested multi-line comments
-}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{ltgray}{rgb}{0.5,0.5,0.5}
 
-\lstdefinestyle{Basic}{
-	xleftmargin=15pt,
-	backgroundcolor         = \color{bgcolor},
-	fillcolor               = \color{bgcolor},
-	basicstyle              = \linespread{1.0}\color{codecolor}\scriptsize\listingsfont,
-	commentstyle            = \color{commentcolor},                  
-	keywordstyle            = \listingsfont\bfseries\color{keywordcolor},
-	identifierstyle         = ,
-	numberstyle             = \color{linenumbercolor},                        % the style that is used for the line-numbers
-	stringstyle             = \color{stringcolor},                            % string literal style
-	breakatwhitespace       = false,                                          % sets if automatic breaks should only happen at whitespace
-	breaklines              = true,                                           % sets automatic line breaking
-	escapeinside            = {\%*}{*)},                                      % if you want to add LaTeX within your code
-	extendedchars           = true,                                           % lets you use non-ASCII characters; for 8-bits encodings only
-	rulesep                 = 5pt,
-	framexleftmargin        = 2pt,
-	framerule               = 0.5pt,
-	framesep                = 1pt,
-	keepspaces              = true,                                           % keeps spaces in text, useful for keeping indentation of code
-	morekeywords            = {*,interface},      	 	  % if you want to add more keywords to the set
-	numbers                 = left,                               % where to put the line-numbers; possible values are (none, left, right)
-	numbersep               = 6pt,                                % how far the line-numbers are from the code
-	showspaces              = false,                              % show spaces everywhere adding particular underscores
-	showstringspaces        = false,                              % underline spaces within strings only
-	showtabs                = false,                              % show tabs within strings adding particular underscores
-	stepnumber              = 1,                                  % the step between two line-numbers. If it's 1, each line will be numbered
-	tabsize                 = 2,                                  % sets default tabsize to 2 spaces
-	title                   = \lstname,                           % show the filename of files included with \lstinputlisting
+\lstset{%
+  	backgroundcolor=\color{white},
+  	basicstyle=\footnotesize,
+  	breakatwhitespace=false,
+  	breaklines=true,
+  	captionpos=b,
+  	commentstyle=\color{dkgreen},
+  	deletekeywords={...},
+  	escapeinside={\%*}{*)},
+  	extendedchars=true,
+  	frame=single,
+  	keepspaces=true,
+  	keywordstyle=\color{blue},
+  	language=SQL,
+  	morekeywords={*,modify,MODIFY,...},
+  	numbers=left,
+  	numbersep=15pt,
+  	numberstyle=\tiny,
+  	rulecolor=\color{ltgray},
+  	showspaces=false,
+  	showstringspaces=false,
+  	showtabs=false,
+  	stepnumber=1,
+  	tabsize=4,
+  	title=\lstname
 }
-

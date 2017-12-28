@@ -2053,20 +2053,27 @@
   <bcf:section number="0">
     <bcf:citekey order="1">bress2014gpu</bcf:citekey>
     <bcf:citekey order="2">abadi2008column</bcf:citekey>
-    <bcf:citekey order="3">bress2014gpu</bcf:citekey>
-    <bcf:citekey order="4">mapdcore</bcf:citekey>
-    <bcf:citekey order="5">immerse</bcf:citekey>
-    <bcf:citekey order="6">filtering</bcf:citekey>
+    <bcf:citekey order="3">bress2014design</bcf:citekey>
+    <bcf:citekey order="4">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="5">mapdcore</bcf:citekey>
+    <bcf:citekey order="6">immerse</bcf:citekey>
     <bcf:citekey order="7">filtering</bcf:citekey>
-    <bcf:citekey order="8">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="8">filtering</bcf:citekey>
     <bcf:citekey order="9">bress2014gpu</bcf:citekey>
-    <bcf:citekey order="10">ddl</bcf:citekey>
-    <bcf:citekey order="11">mapddatatype</bcf:citekey>
-    <bcf:citekey order="12">postgresdatatype</bcf:citekey>
-    <bcf:citekey order="13">mapddatatype</bcf:citekey>
-    <bcf:citekey order="14">postgresdatatype</bcf:citekey>
-    <bcf:citekey order="15">mapdql</bcf:citekey>
-    <bcf:citekey order="16">psql</bcf:citekey>
+    <bcf:citekey order="10">bress2014gpu</bcf:citekey>
+    <bcf:citekey order="11">ddl</bcf:citekey>
+    <bcf:citekey order="12">mapddatatype</bcf:citekey>
+    <bcf:citekey order="13">postgresdatatype</bcf:citekey>
+    <bcf:citekey order="14">mapddatatype</bcf:citekey>
+    <bcf:citekey order="15">postgresdatatype</bcf:citekey>
+    <bcf:citekey order="16">mapdql</bcf:citekey>
+    <bcf:citekey order="17">psql</bcf:citekey>
+    <bcf:citekey order="18">nyc</bcf:citekey>
+    <bcf:citekey order="19">nyc</bcf:citekey>
+    <bcf:citekey order="20">nyctaxigithub</bcf:citekey>
+    <bcf:citekey order="21">billion</bcf:citekey>
+    <bcf:citekey order="22">billion</bcf:citekey>
+    <bcf:citekey order="23">bigquery</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="anyt/global" type="entry" sortscheme="anyt" sortnamekeyscheme="global">
   <bcf:sorting>

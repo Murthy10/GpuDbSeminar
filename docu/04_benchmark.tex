@@ -1,20 +1,166 @@
 \chapter{Benchmark}
-Benchmark
+This section does concerned with a benchmark between the two databases PostgreSQL 10.0 and MapD 3.3.1.
+The dataset is based on a part of the New York City Taxi and Limousine Commission (TLC) Trip Record Data \cite{nyc}.
+All queries were executed on the same server.
 
-\newpage
-
-\section{NYC Taxi Rides}
-
+\section{Dataset}
+\label{sec:dataset}
 \begin{figure}[H]
 \centering
 \captionsetup{justification=centering}
-\includegraphics[width=0.6\textwidth]{images/taxi_dropoffs_map.png}
-\caption[Taxi Dropoffs]{Taxi Dropoffs}
+\includegraphics[width=0.9\textwidth]{images/nyc_taxi.png}
+\caption[Taxi Dropoffs]{TLC Trip Record Data}
 \end{figure}
 
+The New York City Taxi and Limousine Commission (TLC) Trip Record Data \cite{nyc} consists of trip records from the yellow and green taxis.
+Furthermore there are data from the For-Hire Vehicle (FHV).
+The data includes information about capturing pick-up and drop-off locations, times, trip distances, fares, rate types, and driver-reported passenger counts.
 
+To simplify the handling with the huge amount of data we used the scripts from the Github repository \cite{nyctaxigithub}, that is able to download all the data, provides the schema for PostgreSQL and consists of scripts to import the data.
+
+\subsection{Specification}
+To get a brief overview of the specification have a look at the following list.
+\begin{itemize}[noitemsep, topsep=0pt]
+\itemsep-0.5em
+ \item[Format:]  CSV
+ \item[Yellow:]  January 2009 - June 2017
+ \item[Green:]  August 2013 - June 2017
+ \item[FHV:]  January 2015 - June 2017
+ \item[Taxi trips:] Over 1.1 billion \cite{billion}
+ \item[Size:] 267 GB \cite{billion}
+\end{itemize}
+
+\subsection{Data subset}
+Due to the fact that not all GPU databases are able to handle queries based on data larger than the GPU memory,
+we had to shrink the dataset fitting into the available memory.
+
+The GPU used on the server for the benchmark is a Nvidia Tesla K40m with 12 GB memory.
+Hence we used the yellow and green taxi trip data of the year 2015, that has a size of 12 GB, too.
+Consequently all queries fit into the GPU memory.
+
+
+\newpage
 \section{Queries}
-The following list is about the queries
+\label{sec:queries}
+The Queries were predefined by Prof. Stefan Keller and are inspired by the Google BigQuery examples \cite{bigquery}.
+All the queries are listed below, the used syntax is able to run on MapD. \\
 
+
+\begin{lstlisting}[language=sql, caption={Query 1, Counts all the yellow taxi trips},captionpos=b]
+SELECT passenger_count, Avg(total_amount)
+FROM   trips
+GROUP  BY 1;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 2, Calculates the average passenger amount per trip},captionpos=b]
+SELECT cab_type_id, Count(*)
+FROM   trips
+GROUP  BY 1;
+\end{lstlisting}
+
+\begin{lstlisting}[language=sql, caption={Query 3, Sums the yearly amount of passengers},captionpos=b]
+SELECT passenger_count, Extract(year FROM pickup_datetime), Count(*)
+FROM   trips
+GROUP  BY 1, 2;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 4, Groups the amount of passenger by year regarding the trip distance},captionpos=b]
+SELECT passenger_count, Extract(year FROM pickup_datetime), Cast(trip_distance AS INT), Count(*)
+FROM   trips
+GROUP  BY 1, 2, 3
+ORDER  BY 2, 4 DESC;
+\end{lstlisting}
+
+\begin{lstlisting}[language=sql, caption={Query 5, Queries all trips in a certain bounding box},captionpos=b]
+SELECT *
+FROM   trips
+WHERE  ( pickup_longitude BETWEEN -74.007511 AND -73.983479 )
+       AND ( pickup_latitude BETWEEN 40.7105 AND 40.731071 ) LIMIT 10;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 6, Determines the average speed of the yellow taxi trips by hour of the day in a bounding box},captionpos=b]
+SELECT Extract(HOUR FROM pickup_datetime) AS h, AVG(trip_distance / NULLIF(TIMESTAMPDIFF(HOUR,pickup_datetime, dropoff_datetime),0)) AS speed
+FROM   trips
+WHERE  ( pickup_longitude BETWEEN -74.007511 AND -73.983479 )
+       AND ( pickup_latitude BETWEEN 40.7105 AND 40.731071 )
+       AND trip_distance > 0
+       AND fare_amount / trip_distance BETWEEN 2 AND 10
+       AND dropoff_datetime > pickup_datetime
+       AND cab_type_id = 1
+GROUP  BY h
+ORDER  BY h;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 7, Computes the average speed of the yellow taxi trips by hour of the day},captionpos=b]
+SELECT Extract(HOUR FROM pickup_datetime) AS h, Avg(trip_distance / NULLIF(TIMESTAMPDIFF(HOUR, pickup_datetime, dropoff_datetime),0))AS speed
+FROM   trips
+WHERE  trip_distance > 0
+       AND fare_amount / trip_distance BETWEEN 2 AND 10
+       AND dropoff_datetime > pickup_datetime
+       AND cab_type_id = 1
+GROUP  BY h
+ORDER  BY h;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 8, Calculates the average speed of the yellow taxi trips by day of the week},captionpos=b]
+SELECT Extract(DOW FROM pickup_datetime) AS dow, Avg(trip_distance / NULLIF(TIMESTAMPDIFF(HOUR,pickup_datetime,  dropoff_datetime), 0)) AS speed
+FROM   trips
+WHERE  trip_distance > 0
+       AND fare_amount / trip_distance BETWEEN 2 AND 10
+       AND dropoff_datetime > pickup_datetime
+       AND cab_type_id = 1
+GROUP  BY dow
+ORDER  BY dow;
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=sql, caption={Query 9, Determines the average speed of the yellow taxi trips by day of the week in a bounding box},captionpos=b]
+SELECT Extract(DOW FROM pickup_datetime) AS dow, Avg(trip_distance / NULLIF(TIMESTAMPDIFF(HOUR,pickup_datetime,  dropoff_datetime), 0)) AS speed
+FROM   trips
+WHERE  ( pickup_longitude BETWEEN -74.007511 AND -73.983479 )
+       AND ( pickup_latitude BETWEEN 40.7105 AND 40.731071 )
+       AND trip_distance > 0
+       AND fare_amount / trip_distance BETWEEN 2 AND 10
+       AND dropoff_datetime > pickup_datetime
+       AND cab_type_id = 1
+GROUP  BY dow
+ORDER  BY dow;
+\end{lstlisting}
+
+\newpage
 \section{Results}
-The benchmark led to the following results.
+As already mentioned the queries of the benchmark were applied on a database without GPU acceleration,
+in our case PostgreSQL 10.0 and a on MapD 3.3.1 a GPU powered database.
+The dataset was introduced in section~\ref{sec:dataset} and the queries are listed in the section~\ref{sec:queries}.
+
+
+\begin{minipage}{\textwidth}
+  \begin{minipage}[b]{0.49\textwidth}
+    \centering
+     \includegraphics[width=0.3\textwidth,height=0.3\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
+    \captionof{figure}{A table beside a figure}
+    \label{fig:cold_postgres_vs_mapd}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.49\textwidth}
+    \centering
+  \begin{tabular}{ |l|l|l|l|l|l| }
+\hline
+\multicolumn{3}{| l |}{Raw acceleration} & \multicolumn{3}{| l |}{Processed acceleration}  \\
+\hline
+x & y & z & x & x & z \\
+\hline
+-6.160 & 7.185 & 3.235 & -0.021 & -0.094 & 10.001 \\
+-6.153 & 7.204 & 3.220 & -0.042 & -0.106 & 10.006 \\
+-6.174 & 7.170 & 3.356 & -0.023 & -0.015 &  10.041 \\
+-6.174 & 7.173 & 3.416 & -0.033 & -0.069 & 10.062 \\
+\hline
+\end{tabular}
+      \captionof{table}{A table beside a figure}
+    \end{minipage}
+  \end{minipage}

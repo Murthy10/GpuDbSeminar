@@ -41,10 +41,12 @@
 \contentsline {subsubsection}{\nonumberline Commands}{10}{section*.32}
 \contentsline {subsubsection}{\nonumberline Alternative interfaces}{10}{section*.34}
 \contentsline {chapter}{\numberline {4}Benchmark}{11}{chapter.4}
-\contentsline {section}{\numberline {4.1}NYC Taxi Rides}{12}{section.4.1}
-\contentsline {section}{\numberline {4.2}Queries}{12}{section.4.2}
-\contentsline {section}{\numberline {4.3}Results}{12}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusion}{13}{chapter.5}
-\contentsline {chapter}{Glossary}{13}{chapter.5}
-\contentsline {chapter}{\numberline {A}Architecture}{14}{appendix.A}
-\contentsline {chapter}{Bibliography}{16}{section*.37}
+\contentsline {section}{\numberline {4.1}Dataset}{11}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Specification}{12}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Data subset}{12}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}Queries}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Results}{15}{section.4.3}
+\contentsline {chapter}{\numberline {5}Conclusion}{16}{chapter.5}
+\contentsline {chapter}{Glossary}{16}{chapter.5}
+\contentsline {chapter}{\numberline {A}Architecture}{17}{appendix.A}
+\contentsline {chapter}{Bibliography}{19}{section*.37}
