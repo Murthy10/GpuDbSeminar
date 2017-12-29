@@ -17,7 +17,12 @@
 \BOOKMARK [2][-]{subsection.4.1.2}{Data\040subset}{section.4.1}% 17
 \BOOKMARK [1][-]{section.4.2}{Queries}{chapter.4}% 18
 \BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 19
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 20
-\BOOKMARK [0][-]{chapter.5}{Glossary}{}% 21
-\BOOKMARK [0][-]{appendix.A}{Architecture}{}% 22
-\BOOKMARK [0][-]{section*.37}{Bibliography}{}% 23
+\BOOKMARK [2][-]{subsection.4.3.1}{PostgreSQL\040vs.\040MapD\040cold}{section.4.3}% 20
+\BOOKMARK [2][-]{subsection.4.3.2}{PostgreSQL\040vs.\040MapD\040warm}{section.4.3}% 21
+\BOOKMARK [2][-]{subsection.4.3.3}{PostgreSQL\040cold\040vs.\040warm}{section.4.3}% 22
+\BOOKMARK [2][-]{subsection.4.3.4}{MapD\040cold\040vs.\040warm}{section.4.3}% 23
+\BOOKMARK [1][-]{section.4.4}{Conclusion}{chapter.4}% 24
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 25
+\BOOKMARK [0][-]{chapter.5}{Glossary}{}% 26
+\BOOKMARK [0][-]{appendix.A}{Architecture}{}% 27
+\BOOKMARK [0][-]{section*.37}{Bibliography}{}% 28

@@ -123,6 +123,28 @@
       \field{pages}{199\bibrangedash 209}
       \range{pages}{11}
     \endentry
+    \entry{postgis}{online}{}
+      \name{author}{1}{}{%
+        {{hash=dfa147bdb0f4ef21e3245ccd80e569c3}{%
+           family={Developers},
+           family_i={D\bibinitperiod},
+           given={PostGIS},
+           given_i={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{dfa147bdb0f4ef21e3245ccd80e569c3}
+      \strng{fullhash}{dfa147bdb0f4ef21e3245ccd80e569c3}
+      \field{labelalpha}{Dev17}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{Spatial and Geographic objects for PostgreSQL}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://postgis.net/
+      \endverb
+    \endentry
     \entry{filtering}{online}{}
       \name{author}{1}{}{%
         {{hash=e8985728e27560c33c53efe24a0cdaf9}{%

@@ -16,7 +16,8 @@ The New York City Taxi and Limousine Commission (TLC) Trip Record Data \cite{nyc
 Furthermore there are data from the For-Hire Vehicle (FHV).
 The data includes information about capturing pick-up and drop-off locations, times, trip distances, fares, rate types, and driver-reported passenger counts.
 
-To simplify the handling with the huge amount of data we used the scripts from the Github repository \cite{nyctaxigithub}, that is able to download all the data, provides the schema for PostgreSQL and consists of scripts to import the data.
+To simplify the handling with the huge amount of data we used the scripts from the Github repository \cite{nyctaxigithub}, that is able to download all the data,
+provides the schema for PostgreSQL with the PostGIS \cite{postgis} extension and consists of scripts to import the data.
 
 \subsection{Specification}
 To get a brief overview of the specification have a look at the following list.
@@ -135,18 +136,18 @@ ORDER  BY dow;
 \newpage
 \section{Results}
 As already mentioned the queries of the benchmark were applied on a database without GPU acceleration,
-in our case PostgreSQL 10.0 and a on MapD 3.3.1 a GPU powered database.
+in our case PostgreSQL 10.0 with the PostGIS 2.4 extension and a on MapD 3.3.1 a GPU powered database.
 The dataset was introduced in section~\ref{sec:dataset} and the queries are listed in the section~\ref{sec:queries}.
 
-\subsection{Data PostgreSQL vs. MapD cold}
-The diagram \ref{fig:cold_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD at the first time (cold).
+\subsection{PostgreSQL vs. MapD cold}
+The diagram \ref{fig:cold_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD at the first time of execution (cold).
 That means there might are no caching effects influencing the measurement.
 
 \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
-    \captionof{figure}{Diagram PostgreSQL vs. MapD cold}
+    \captionof{figure}{Diagram PostgreSQL vs. MapD cold \\ (logarithmic scale)}
     \label{fig:cold_postgres_vs_mapd}
   \end{minipage}
   \hfill
@@ -159,9 +160,9 @@ That means there might are no caching effects influencing the measurement.
     1 & 64878 & 203 \\
     2 & 74404 & 456 \\
     3 & 145749 & 742 \\
-    4 & 172592 & 1.431 \\
+    4 & 172592 & 1431 \\
     5 & 2556 & 663 \\
-    6 & 89029 & 5.756 \\
+    6 & 89029 & 5756 \\
     7 & 150823 & 119 \\
     8 & 152883 & 315 \\
     9 & 87535 & 243 \\
@@ -172,12 +173,17 @@ That means there might are no caching effects influencing the measurement.
     \end{minipage}
  \end{minipage}
 
+\newpage
+\subsection{PostgreSQL vs. MapD warm}
+The diagram \ref{fig:warm_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD after the first time of execution (warm).
+That means there might are caching effects speeding up the measurement.
+The query was processed 5 times and the values listed in the table \ref{tab:warm_postgres_vs_mapd} are the mean time of these measurements.
 
 \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.59\textwidth}
     \centering
      \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/warm_postgres_vs_mapd.png}
-    \captionof{figure}{Diagram PostgreSQL vs. MapD warm}
+    \captionof{figure}{Diagram PostgreSQL vs. MapD warm \\ (logarithmic scale)}
     \label{fig:warm_postgres_vs_mapd}
   \end{minipage}
   \hfill
@@ -204,6 +210,9 @@ That means there might are no caching effects influencing the measurement.
  \end{minipage}
 
 
+
+\subsection{PostgreSQL cold vs. warm}
+The diagram \ref{fig:postgres_cold_vs_warm} compares the query duration of PostgreSQL at the first execution with the mean of the next 5 executions.
 
  \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.59\textwidth}
@@ -236,6 +245,10 @@ That means there might are no caching effects influencing the measurement.
  \end{minipage}
 
 
+\newpage
+\subsection{MapD cold vs. warm}
+The diagram \ref{fig:mapd_cold_vs_warm} compares the query duration of MapD at the first execution with the mean of the next 5 executions.
+
 
   \begin{minipage}{\textwidth}
   \begin{minipage}[b]{0.59\textwidth}
@@ -254,9 +267,9 @@ That means there might are no caching effects influencing the measurement.
     1 & 203 & 41 \\
     2 & 456 & 223 \\
     3 & 742 & 412 \\
-    4 & 1.431 & 840 \\
+    4 & 1431 & 840 \\
     5 & 663 & 25 \\
-    6 & 5.756 & 149 \\
+    6 & 5756 & 149 \\
     7 & 119 & 86 \\
     8 & 315 & 115 \\
     9 & 243 & 131 \\
@@ -266,3 +279,6 @@ That means there might are no caching effects influencing the measurement.
             \label{tab:mapd_cold_vs_warm}
     \end{minipage}
  \end{minipage}
+
+
+\section{Conclusion}
