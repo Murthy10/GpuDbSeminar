@@ -145,6 +145,28 @@
       \verb https://postgis.net/
       \endverb
     \endentry
+    \entry{mdillonpostgis}{online}{}
+      \name{author}{1}{}{%
+        {{hash=111f9c670814ffd1cf34e469b692ea9e}{%
+           family={Dillon},
+           family_i={D\bibinitperiod},
+           given={Mike},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{111f9c670814ffd1cf34e469b692ea9e}
+      \strng{fullhash}{111f9c670814ffd1cf34e469b692ea9e}
+      \field{labelalpha}{Dil17}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{mdillon/postgis}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://github.com/appropriate/docker-postgis
+      \endverb
+    \endentry
     \entry{filtering}{online}{}
       \name{author}{1}{}{%
         {{hash=e8985728e27560c33c53efe24a0cdaf9}{%
@@ -211,6 +233,28 @@
       \field{year}{2017}
       \verb{url}
       \verb https://www.postgresql.org/docs/10/static/app-psql.html
+      \endverb
+    \endentry
+    \entry{pgstrom}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9a0030fc44f6261d3c963d0bdcecf4a3}{%
+           family={Kohei},
+           family_i={K\bibinitperiod},
+           given={KaiGai},
+           given_i={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a0030fc44f6261d3c963d0bdcecf4a3}
+      \strng{fullhash}{9a0030fc44f6261d3c963d0bdcecf4a3}
+      \field{labelalpha}{Koh17}
+      \field{sortinit}{K}
+      \field{sortinithash}{a7d5b3aec5a0890aae7baf85a209abfc}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{PG-Strom}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://strom.kaigai.gr.jp/
       \endverb
     \endentry
     \entry{bigquery}{online}{}
@@ -418,6 +462,28 @@
       \field{year}{2017}
       \verb{url}
       \verb https://github.com/toddwschneider/nyc-taxi-data
+      \endverb
+    \endentry
+    \entry{mapddocker}{online}{}
+      \name{author}{1}{}{%
+        {{hash=4d76789b5057449e72f653f8089e57b4}{%
+           family={Seidl},
+           family_i={S\bibinitperiod},
+           given={Andrew},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{4d76789b5057449e72f653f8089e57b4}
+      \strng{fullhash}{4d76789b5057449e72f653f8089e57b4}
+      \field{labelalpha}{Sei17}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{12}
+      \field{title}{MapD container}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://github.com/mapd/mapd-core/tree/master/docker
       \endverb
     \endentry
   \endsortlist

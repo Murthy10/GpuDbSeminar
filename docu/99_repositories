@@ -1,3 +1,45 @@
 \chapter{Repositories}
-The section current section about the repositoires
+The section current section about the used source code and the related repositories, that are used during the seminar.
 
+\section{MSE-Database-Seminar-GPU-Databases}
+The repository MSE-Database-Seminar-GPU-Databases\footnote{\url{https://github.com/geometalab/MSE-Database-Seminar-GPU-Databases}} is provided by Prof. Stefan Keller.
+It is the main entrypoint for the database seminar fall 2017.
+
+\subsubsection{Content}
+The repository consists of the queries for the benchmark.
+The queries are available for PostgreSQL, PostGIS and MapD.
+In addition there is a schema for MapD for the New York City Taxi drives dataset and an data import script for MapD as well.
+Further, there are Dockerfiles for PostgreSQL with the PostGIS extension, BlazingDB, MapD and PG-Strom.
+
+\paragraph{PostgreSQL with the PostGIS extension} is based on the Dockerfile of Mike Dillon \cite{mdillonpostgis},
+who provides Dockerfiles for several versions of PostgreSQL with PostGIS.
+Additionally there are fine tuned settings for PostgreSQL related to the powerful server.
+
+
+\paragraph{MapD} docker image is based on the Dockerfile \cite{mapddocker} maintained by Andrew Seidl, who is a developer at  MapD Technologies, Inc.
+
+\paragraph{PG-Strom} \cite{pgstrom} is an extension for PostgreSQL that adds GPU acceleration to the database.
+
+
+\newpage
+\section{nyc-taxi-data}
+The repository nyc-taxi-data\footnote{\url{https://github.com/toddwschneider/nyc-taxi-data}} of Todd W. Schneider provides scripts for:
+\begin{itemize}
+    \item Data download
+    \item Database schema for PostgreSQL with the PostGIS extension
+    \item Data import script
+    \item Scripts for analysis purpose
+\end{itemize}
+
+It is the code base of Todd W. Schneider's article about the  New York City Taxi and Uber data \cite{billion}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth,height=0.5\textheight,keepaspectratio]{images/taxi_dropoffs_map.png}
+    \caption{New York City Taxi Drop Offs \cite{billion}}
+    \label{fig:taxi_dropoffs_map}
+\end{figure}
+
+
+\section{GpuDbSeminar}
+The repository GpuDbSeminar \footnote{\url{https://github.com/Murthy10/GpuDbSeminar}} of Samuel Kurath hosts the documentation of this paper
+and provides Dockerfiles for the benchmark.
