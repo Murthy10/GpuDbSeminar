@@ -21,8 +21,6 @@
 \BOOKMARK [2][-]{subsection.4.3.2}{PostgreSQL\040vs.\040MapD\040warm}{section.4.3}% 21
 \BOOKMARK [2][-]{subsection.4.3.3}{PostgreSQL\040cold\040vs.\040warm}{section.4.3}% 22
 \BOOKMARK [2][-]{subsection.4.3.4}{MapD\040cold\040vs.\040warm}{section.4.3}% 23
-\BOOKMARK [1][-]{section.4.4}{Conclusion}{chapter.4}% 24
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 25
-\BOOKMARK [0][-]{chapter.5}{Glossary}{}% 26
-\BOOKMARK [0][-]{appendix.A}{Architecture}{}% 27
-\BOOKMARK [0][-]{section*.37}{Bibliography}{}% 28
+\BOOKMARK [2][-]{subsection.4.3.5}{Conclusion}{section.4.3}% 24
+\BOOKMARK [0][-]{appendix.A}{Repositories}{}% 25
+\BOOKMARK [0][-]{section*.37}{Bibliography}{}% 26

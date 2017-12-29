@@ -50,8 +50,6 @@
 \contentsline {subsection}{\numberline {4.3.2}PostgreSQL vs. MapD warm}{16}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {4.3.3}PostgreSQL cold vs. warm}{16}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}MapD cold vs. warm}{17}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Conclusion}{17}{section.4.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{18}{chapter.5}
-\contentsline {chapter}{Glossary}{18}{chapter.5}
-\contentsline {chapter}{\numberline {A}Architecture}{19}{appendix.A}
-\contentsline {chapter}{Bibliography}{21}{section*.37}
+\contentsline {subsection}{\numberline {4.3.5}Conclusion}{17}{subsection.4.3.5}
+\contentsline {chapter}{\numberline {A}Repositories}{19}{appendix.A}
+\contentsline {chapter}{Bibliography}{20}{section*.37}
