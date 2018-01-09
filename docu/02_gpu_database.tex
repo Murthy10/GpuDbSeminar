@@ -17,8 +17,24 @@ Thus most of the GPU databases products focus on analytics.
 The current section will give you an overview of the components a GPU database consists of.
 The paper \cite{bress2014gpu} of Sebastian Bress et al. does split the components into Functional and Non-Functional properties.
 Since those categories are reasonable they are used in this paper as well.
-The interesting Non-Functional properties of GPU database are performance and portability.
-The next sub section will explain and list the Functional Properties.
+The next sub section will explain and list these properties.
+
+\subsection{Non-Functional properties}
+
+\subsubsection{Performance}
+Performance is the biggest advantage of GPU database, but not all tasks are automatic faster on GPUs.
+Due to the huge amount of processors task that are able to parallelise easily are incredibly fast.
+Unfortunately task which require a complex control flow or are hard to parallelise don't profit from the cores.
+And there is always the bottleneck of the data transfer to the GPU.
+
+\subsubsection{Portability}
+In terms of portability we talk about if the GPU database is able to run on different GPUs or CPUs vendors/architectures, like NVIDIA or AMD graphic cards.
+Often this requirement is in contrast to the performance property, since the vendors offer special implementation or hardware details to accelerate their products.
+
+\subsubsection{Scalability}
+To my point of view the paper \cite{bress2014gpu} of Sebastian Bress et al. missed the important criteria of the scalability.
+The collected data of companies grow and grow, thus you need to have memory for all that data. Sadly the memory of GPUs is often limited,
+hence the only way to handle this issue it to scale your GPU database verticaly over multiple GPUs.
 
 \subsection{Functional properties}
 
@@ -59,3 +75,4 @@ The paper \cite{bress2014gpu} proposes an architecture with an in-memory storage
 With regard to the portability a hardware oblivious architecture is suggested.
 To my point of view a hardware aware GPU database would make more sense.
 Since GPU databases are all about speed, use hardware specific tuning would result in more acceleration.
+And the huge amount of data makes scalability absolutely necessary.

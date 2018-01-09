@@ -394,6 +394,28 @@
       \verb https://www.mapd.com/docs/latest/mapd-core-guide/mapdql/
       \endverb
     \endentry
+    \entry{trillionrow}{online}{}
+      \name{author}{1}{}{%
+        {{hash=e45d0eda2cf747fe54667616fab94bfb}{%
+           family={Morgan},
+           family_i={M\bibinitperiod},
+           given={Timothy\bibnamedelima Prickett},
+           given_i={T\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e45d0eda2cf747fe54667616fab94bfb}
+      \strng{fullhash}{e45d0eda2cf747fe54667616fab94bfb}
+      \field{labelalpha}{Mor18}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{Pushing A Trillion Row Database With GPU Acceleration}
+      \field{year}{2018}
+      \verb{url}
+      \verb https://www.nextplatform.com/2017/04/26/pushing-trillion-row-database-gpu-acceleration/
+      \endverb
+    \endentry
     \entry{nyc}{online}{}
       \name{author}{1}{}{%
         {{hash=bd1a192072a7aa60b6074584323f6930}{%
