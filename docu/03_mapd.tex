@@ -15,7 +15,7 @@ A year leater MapD was incubated at the  MIT’s Computer Science and Artificial
 and in September 2013 Todd Mostak founded MapD Technologies, Inc.
 They have got two products called MapD Core \cite{mapdcore} and MapD Immerse \cite{immerse}.
 The MapD Core SQL engine is an open source in-memory, SQL, GPU database and
-MapD Immerse is a tool for visual analytics on top of MapD Core SQL engine.
+MapD Immerse is a tool for visual analytics on top of the MapD Core SQL engine.
 
 
 \begin{figure}[H]
@@ -98,7 +98,7 @@ To get a better intuition the corresponding PostgreSQL data types are listed as 
 \hline
 Data type & Size [bytes] & Data type & Size [bytes]  \\
 \hline
-TEXT & Variable & text & Variable \\
+TEXT & variable & text & variable \\
 TIMESTAMP	& 8 & timestamp & 8 \\
 TIME	& 8 & time & 8 \\
 DATE	& 8 & date &  4 \\
@@ -144,7 +144,7 @@ MapD allows to import data from different sources as you can see in the followin
 The COPY FROM operation is callable from the mapdql terminal and imports data from a local CSV or related format file into the database.
 
 \subsubsection{SQL Importer}
-The SQL Importer is a java tool that allows to run queries on other database via JDBC and stores the results in to MapD.
+The SQL Importer is a java tool that allows to run queries on other database via JDBC and stores the results into MapD.
 
 \subsubsection{StreamInsert}
 The StreamInsert program could be attached at the end of a real-time stream processing engine like Kafka or a similar product to import stream data into MapD for further analytic tasks.
@@ -212,3 +212,4 @@ As MapD begin their development there already have been companies with a huge am
 Since the data should fit on a single GPU.
 In recent times the customer of MapD and similar vendors like to use the GPU acceleration on all their data. Hence they would like to use multiple GPUs to do their analytic tasks.
 With the Version 3.0, MapD realized these requirements and is doing ongoing reseach and development to improve and accelerate the scaling task. \cite{trillionrow}
+And as already mentioned MapD tries to support operations to alter the stored data.

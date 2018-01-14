@@ -284,7 +284,7 @@ The diagram \ref{fig:mapd_cold_vs_warm} compares the query duration of MapD at t
 \subsection{Conclusion}
 As you can see in the diagrams \ref{fig:cold_postgres_vs_mapd} and \ref{fig:warm_postgres_vs_mapd}, MapD is up to 1500 times faster then PostgreSQL.
 I even had to use a logarithmic scale to make the duration of the PostgreSQL queries viewable on the diagrams.
-The performance of MapS is really astonishing.
+The performance of MapD is really astonishing.
 The huge speedup compared to PostgreSQL might due to the fact that MapD is an in-memory database and the GPU acceleration is a big improvement as well.
 Further, the MapD usage of a column store instead of a row-oriented storage like PostgreSQL does increase the performance, too.
 And the fact that MapD is developed for an analytical purpose and doesn't support transaction in contrast to PostgreSQL must not be forgotten.

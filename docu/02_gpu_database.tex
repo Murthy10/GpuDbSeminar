@@ -9,7 +9,7 @@ This is due to the fact that GPUs can have thousands of cores and high bandwidth
 Thus most of the GPU databases products focus on analytics.
 
 
-\paragraph{Weaknesses} Beside of these strengths, GPU database host several pitfalls like transfer of the data from the CPU to the GPU,
+\paragraph{Weaknesses} Beside of these strengths, GPU databases host several pitfalls like transfer of the data from the CPU to the GPU,
  the memory limitations and the massiv costs of GPU servers.
 
 
@@ -23,7 +23,7 @@ The next sub section will explain and list these properties.
 
 \subsubsection{Performance}
 Performance is the biggest advantage of GPU database, but not all tasks are automatic faster on GPUs.
-Due to the huge amount of processors task that are able to parallelise easily are incredibly fast.
+Due to the huge amount of processors tasks that are able to parallelise easily are incredibly fast.
 Unfortunately task which require a complex control flow or are hard to parallelise don't profit from the cores.
 And there is always the bottleneck of the data transfer to the GPU.
 
@@ -40,8 +40,8 @@ hence the only way to handle this issue it to scale your GPU database verticaly 
 
 \subsubsection{Storage system}
 If we talk about storage systems there are several scenarios conceivable.
-First we the Video Random Access Memory (VRAM) of the GPUs we have an additional storage medium next to the Random-Access Memory (RAM) and the hard disk.
-The different mediums provides different advantages and disadvantages.
+First with the Video Random Access Memory (VRAM) of the GPUs we have an additional storage medium next to the Random-Access Memory (RAM) and the hard disk.
+The different mediums provide different advantages and disadvantages.
 Hard disks are persistent, cheap and have a huge capacity.
 Unfortunately they are pretty slow.
 Random-Access Memory is very fast compared to hard disks but the transfer to the GPU is still a bottleneck and it isn't a persistent storage, either.
