@@ -17,3 +17,5 @@ COPY ./update-postgis.sh /usr/local/bin
 COPY ./db-settings.sh /docker-entrypoint-initdb.d/db-settings.sh
 
 RUN chmod +x /docker-entrypoint-initdb.d/db-settings.sh
+
+
