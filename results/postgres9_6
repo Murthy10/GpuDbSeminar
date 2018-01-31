@@ -1,0 +1,15 @@
+\timing
+
+/* Query 1 */
+EXPLAIN SELECT cab_type_id,
+       Count(*)
+FROM   trips
+GROUP  BY 1;
+
+
+
+/* Query 2 */
+EXPLAIN SELECT passenger_count,
+       Avg(total_amount)
+FROM   trips
+GROUP  BY 1;
