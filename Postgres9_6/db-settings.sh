@@ -18,6 +18,7 @@ function alter_system() {
 		ALTER SYSTEM SET wal_buffers = '16MB';
 		ALTER SYSTEM SET default_statistics_target = '500';
 		ALTER SYSTEM SET random_page_cost = '1.1';
+		ALTER SYSTEM SET fsync = 'off';
 EOSQL
 }
 
