@@ -6,7 +6,8 @@ set -o nounset
 function alter_system() {
 	echo "Altering System parameters"
 	PGUSER="$POSTGRES_USER" psql --dbname="$POSTGRES_DB" <<-EOSQL
-		ALTER SYSTEM SET max_connections = '5';
+		ALTER SYSTEM SET max_connections = '1000';
+		ALTER SYSTEM SET superuser_reserved_connections = '5';
 		ALTER SYSTEM SET max_wal_senders = '1';
 		ALTER SYSTEM SET shared_buffers = '128GB';
 		ALTER SYSTEM SET effective_cache_size = '384GB';
@@ -18,6 +19,10 @@ function alter_system() {
 		ALTER SYSTEM SET wal_buffers = '16MB';
 		ALTER SYSTEM SET default_statistics_target = '500';
 		ALTER SYSTEM SET random_page_cost = '1.1';
+		ALTER SYSTEM SET max_worker_processes = '40';
+		ALTER SYSTEM SET max_parallel_workers = '40';
+		ALTER SYSTEM SET max_parallel_workers_per_gather = '40';
+		ALTER SYSTEM SET fsync = 'off';
 EOSQL
 }
 

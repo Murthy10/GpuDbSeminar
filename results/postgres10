@@ -1,5 +1,0 @@
-docker build -t postgres_taxi_10 .
-docker run --name postgres_taxi_10 -v /data/dbseminar/:/dbseminar -e POSTGRES_PASSWORD=mysecretpassword -d postgres_taxi_10
-docker exec -it postgres_taxi_10 bash
-su postgres -c /dbseminar/nyc-taxi-data/initialize_database.sh
-su postgres -c /dbseminar/nyc-taxi-data/import_trip_data.sh
