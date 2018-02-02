@@ -1,7 +1,5 @@
-\timing
-
 /* Query 1 */
-EXPLAIN SELECT cab_type_id,
+SELECT cab_type_id,
        Count(*)
 FROM   trips
 GROUP  BY 1;
@@ -12,31 +10,30 @@ GROUP  BY 1;
            2 |  19233765
 (2 rows)
 
-Time: 52401.329 ms
+Time: 8318.022 ms
 
-                                                                       QUERY PLAN
---------------------------------------------------------------------------------------------------------------------------------------------------------
- Finalize GroupAggregate  (cost=5489258.42..5489258.56 rows=2 width=12) (actual time=51011.368..51011.370 rows=2 loops=1)
+                                                                      QUERY PLAN
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=5489258.42..5489258.56 rows=2 width=12) (actual time=8395.095..8395.097 rows=2 loops=1)
    Group Key: cab_type_id
-   ->  Sort  (cost=5489258.42..5489258.46 rows=16 width=12) (actual time=51011.362..51011.363 rows=18 loops=1)
+   ->  Sort  (cost=5489258.42..5489258.46 rows=16 width=12) (actual time=8395.077..8395.079 rows=18 loops=1)
          Sort Key: cab_type_id
          Sort Method: quicksort  Memory: 25kB
-         ->  Gather  (cost=5489256.48..5489258.10 rows=16 width=12) (actual time=51011.207..51011.303 rows=18 loops=1)
+         ->  Gather  (cost=5489256.48..5489258.10 rows=16 width=12) (actual time=8394.883..8395.038 rows=18 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial HashAggregate  (cost=5488256.48..5488256.50 rows=2 width=12) (actual time=51006.474..51006.475 rows=2 loops=9)
+               ->  Partial HashAggregate  (cost=5488256.48..5488256.50 rows=2 width=12) (actual time=8379.677..8379.678 rows=2 loops=9)
                      Group Key: cab_type_id
-                     ->  Parallel Seq Scan on trips  (cost=0.00..5384915.32 rows=20668232 width=4) (actual time=0.166..46883.256 rows=18371862 loops=9)
- Planning time: 0.213 ms
- Execution time: 51030.576 ms
+                     ->  Parallel Seq Scan on trips  (cost=0.00..5384915.32 rows=20668232 width=4) (actual time=0.030..5276.842 rows=18371862 loops=9)
+ Planning time: 0.164 ms
+ Execution time: 9161.833 ms
 (13 rows)
 
-Time: 51031.479 ms
-
+Time: 9162.762 ms
 
 
 /* Query 2 */
-EXPLAIN ANALYZE SELECT passenger_count,
+SELECT passenger_count,
        Avg(total_amount)
 FROM   trips
 GROUP  BY 1;
@@ -55,30 +52,30 @@ GROUP  BY 1;
                9 | 53.8326688102893891
 (10 rows)
 
-Time: 56713.981 ms
+Time: 13766.868 ms
 
                                                                        QUERY PLAN
----------------------------------------------------------------------------------------------------------------------------------------------------------
- Finalize GroupAggregate  (cost=5489263.79..5489264.44 rows=7 width=36) (actual time=57076.411..57076.467 rows=10 loops=1)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=5489263.79..5489264.44 rows=7 width=36) (actual time=13808.721..13808.776 rows=10 loops=1)
    Group Key: passenger_count
-   ->  Sort  (cost=5489263.79..5489263.93 rows=56 width=36) (actual time=57076.381..57076.390 rows=90 loops=1)
+   ->  Sort  (cost=5489263.79..5489263.93 rows=56 width=36) (actual time=13808.700..13808.707 rows=90 loops=1)
          Sort Key: passenger_count
          Sort Method: quicksort  Memory: 32kB
-         ->  Gather  (cost=5489256.48..5489262.17 rows=56 width=36) (actual time=57076.242..57076.319 rows=90 loops=1)
+         ->  Gather  (cost=5489256.48..5489262.17 rows=56 width=36) (actual time=13808.497..13808.661 rows=90 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial HashAggregate  (cost=5488256.48..5488256.57 rows=7 width=36) (actual time=57070.087..57070.092 rows=10 loops=9)
+               ->  Partial HashAggregate  (cost=5488256.48..5488256.57 rows=7 width=36) (actual time=13792.064..13792.070 rows=10 loops=9)
                      Group Key: passenger_count
-                     ->  Parallel Seq Scan on trips  (cost=0.00..5384915.32 rows=20668232 width=10) (actual time=0.147..50295.474 rows=18371862 loops=9)
- Planning time: 0.252 ms
- Execution time: 57091.824 ms
+                     ->  Parallel Seq Scan on trips  (cost=0.00..5384915.32 rows=20668232 width=10) (actual time=0.030..8487.565 rows=18371862 loops=9)
+ Planning time: 0.267 ms
+ Execution time: 14639.047 ms
 (13 rows)
 
-
+Time: 14640.150 ms
 
 
 /* Query 3 */
-EXPLAIN ANALYZE SELECT passenger_count,
+SELECT passenger_count,
        Extract(year FROM pickup_datetime),
        Count(*)
 FROM   trips
@@ -99,19 +96,18 @@ GROUP  BY 1,
                3 |      2015 |   6580430
 (10 rows)
 
-Time: 167725.494 ms
+Time: 110866.467 ms
 
                                                            QUERY PLAN
----------------------------------------------------------------------------------------------------------------------------------
- HashAggregate  (cost=8485150.12..8773895.72 rows=23099648 width=20) (actual time=166732.534..166770.514 rows=10 loops=1)
+--------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=8485150.12..8773895.72 rows=23099648 width=20) (actual time=118691.513..118767.220 rows=10 loops=1)
    Group Key: passenger_count, date_part('year'::text, pickup_datetime)
-   ->  Seq Scan on trips  (cost=0.00..7245056.20 rows=165345856 width=12) (actual time=0.449..127573.307 rows=165346754 loops=1)
- Planning time: 0.196 ms
- Execution time: 166895.614 ms
+   ->  Seq Scan on trips  (cost=0.00..7245056.20 rows=165345856 width=12) (actual time=0.135..80676.307 rows=165346754 loops=1)
+ Planning time: 0.211 ms
+ Execution time: 118868.812 ms
 (5 rows)
 
-Time: 166908.936 ms
-
+Time: 118871.618 ms
 
 
 /* Query 4 */
@@ -125,21 +121,23 @@ GROUP  BY 1,
           3
 ORDER  BY 2,
           4 DESC;
-Time: 231373.204 ms
+
+Time: 158339.893 ms
 
                                                               QUERY PLAN
 ---------------------------------------------------------------------------------------------------------------------------------------
- Sort  (cost=12483619.02..12541368.14 rows=23099648 width=24) (actual time=195886.588..195886.680 rows=1636 loops=1)
+ Sort  (cost=12483619.02..12541368.14 rows=23099648 width=24) (actual time=155861.042..155861.148 rows=1636 loops=1)
    Sort Key: (date_part('year'::text, pickup_datetime)), (count(*)) DESC
    Sort Method: quicksort  Memory: 176kB
-   ->  HashAggregate  (cost=9311879.40..9658374.12 rows=23099648 width=24) (actual time=195772.521..195885.691 rows=1636 loops=1)
+   ->  HashAggregate  (cost=9311879.40..9658374.12 rows=23099648 width=24) (actual time=155821.339..155860.205 rows=1636 loops=1)
          Group Key: passenger_count, date_part('year'::text, pickup_datetime), (trip_distance)::integer
-         ->  Seq Scan on trips  (cost=0.00..7658420.84 rows=165345856 width=16) (actual time=0.400..146893.879 rows=165346754 loops=1)
- Planning time: 0.178 ms
- Execution time: 195992.420 ms
+         ->  Seq Scan on trips  (cost=0.00..7658420.84 rows=165345856 width=16) (actual time=0.048..106336.882 rows=165346754 loops=1)
+ Planning time: 0.370 ms
+ Execution time: 155957.221 ms
 (8 rows)
 
-Time: 195999.527 ms
+Time: 155959.727 ms
+
 
 
 /* Query 5 */
@@ -148,19 +146,20 @@ FROM   trips
 WHERE  ( pickup_longitude BETWEEN -74.007511 AND -73.983479 )
        AND ( pickup_latitude BETWEEN 40.7105 AND 40.731071 ) LIMIT 10;
 
-Time: 1642.996 ms
+Time: 2.844 ms
 
                                                                                     QUERY PLAN
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- Limit  (cost=0.00..10.24 rows=10 width=238) (actual time=0.251..972.759 rows=10 loops=1)
-   ->  Seq Scan on trips  (cost=0.00..8485150.12 rows=8283657 width=238) (actual time=0.250..972.745 rows=10 loops=1)
+ Limit  (cost=0.00..10.24 rows=10 width=238) (actual time=0.038..0.147 rows=10 loops=1)
+   ->  Seq Scan on trips  (cost=0.00..8485150.12 rows=8283657 width=238) (actual time=0.035..0.143 rows=10 loops=1)
          Filter: ((pickup_longitude >= '-74.007511'::numeric) AND (pickup_longitude <= '-73.983479'::numeric) AND (pickup_latitude >= 40.7105) AND (pickup_latitude <= 40.731071))
-         Rows Removed by Filter: 1159597
- Planning time: 0.593 ms
- Execution time: 972.814 ms
+         Rows Removed by Filter: 144
+ Planning time: 0.605 ms
+ Execution time: 0.186 ms
 (6 rows)
 
-Time: 974.140 ms
+Time: 1.357 ms
+
 
 
 /* Query 6 average speed of Yellow taxi trips by hour of day in bounding box*/
@@ -207,32 +206,34 @@ ORDER  BY h;
  23 | 6.12913223140496
 (24 rows)
 
-Time: 57356.628 ms
+Time: 15346.070 ms
 
                                                                                                                                                                                                       QUERY PLAN
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
- Finalize GroupAggregate  (cost=5956464.09..5956736.89 rows=12123 width=16) (actual time=57452.067..57452.146 rows=24 loops=1)
+ Finalize GroupAggregate  (cost=5956464.09..5956736.89 rows=12123 width=16) (actual time=14888.236..14888.303 rows=24 loops=1)
    Group Key: (date_part('hour'::text, pickup_datetime))
-   ->  Sort  (cost=5956464.09..5956494.41 rows=12128 width=40) (actual time=57452.052..57452.075 rows=216 loops=1)
+   ->  Sort  (cost=5956464.09..5956494.41 rows=12128 width=40) (actual time=14888.196..14888.219 rows=216 loops=1)
          Sort Key: (date_part('hour'::text, pickup_datetime))
          Sort Method: quicksort  Memory: 55kB
-         ->  Gather  (cost=5954375.58..5955641.44 rows=12128 width=40) (actual time=56090.833..57451.877 rows=216 loops=1)
+         ->  Gather  (cost=5954375.58..5955641.44 rows=12128 width=40) (actual time=13525.419..14888.020 rows=216 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial GroupAggregate  (cost=5953375.58..5953428.64 rows=1516 width=40) (actual time=56101.826..57342.955 rows=24 loops=9)
+               ->  Partial GroupAggregate  (cost=5953375.58..5953428.64 rows=1516 width=40) (actual time=13493.602..14709.150 rows=24 loops=9)
                      Group Key: (date_part('hour'::text, pickup_datetime))
-                     ->  Sort  (cost=5953375.58..5953379.37 rows=1516 width=30) (actual time=55997.195..56284.821 rows=1509889 loops=9)
+                     ->  Sort  (cost=5953375.58..5953379.37 rows=1516 width=30) (actual time=13387.999..13652.752 rows=1509889 loops=9)
                            Sort Key: (date_part('hour'::text, pickup_datetime))
-                           Sort Method: quicksort  Memory: 168184kB
-                           ->  Parallel Seq Scan on trips  (cost=0.00..5953295.49 rows=1516 width=30) (actual time=5444.513..55286.930 rows=1509889 loops=9)
+                           Sort Method: quicksort  Memory: 183744kB
+                           ->  Parallel Seq Scan on trips  (cost=0.00..5953295.49 rows=1516 width=30) (actual time=0.071..12932.841 rows=1509889 loops=9)
                                  Filter: ((pickup_longitude >= '-74.007511'::numeric) AND (pickup_longitude <= '-73.983479'::numeric) AND (pickup_latitude >= 40.7105) AND (pickup_latitude <= 40.731071) AND (trip_distance > '0'::numeric) AN
 D (dropoff_datetime > pickup_datetime) AND (cab_type_id = 1) AND ((fare_amount / trip_distance) >= '2'::numeric) AND ((fare_amount / trip_distance) <= '10'::numeric))
                                  Rows Removed by Filter: 16861973
- Planning time: 1.899 ms
- Execution time: 57468.991 ms
+ Planning time: 1.602 ms
+ Execution time: 15600.784 ms
 (18 rows)
+
+Time: 15604.577 ms
 
 
 /* Query 7 average speed of Yellow taxi trips by hour of day */
@@ -277,34 +278,34 @@ ORDER  BY h;
  23 | 10.4473838604726
 (24 rows)
 
-Time: 85488.661 ms
+Time: 44576.308 ms
 
                                                                                                                     QUERY PLAN
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---
- Finalize GroupAggregate  (cost=5796842.25..5802271.71 rows=240948 width=16) (actual time=85868.785..85868.911 rows=24 loops=1)
+ Finalize GroupAggregate  (cost=5796842.25..5802271.71 rows=240948 width=16) (actual time=46370.354..46370.427 rows=24 loops=1)
    Group Key: (date_part('hour'::text, pickup_datetime))
-   ->  Sort  (cost=5796842.25..5797447.33 rows=242032 width=40) (actual time=85868.752..85868.812 rows=216 loops=1)
+   ->  Sort  (cost=5796842.25..5797447.33 rows=242032 width=40) (actual time=46370.336..46370.364 rows=216 loops=1)
          Sort Key: (date_part('hour'::text, pickup_datetime))
          Sort Method: quicksort  Memory: 55kB
-         ->  Gather  (cost=5749936.64..5775198.73 rows=242032 width=40) (actual time=72406.948..85868.492 rows=216 loops=1)
+         ->  Gather  (cost=5749936.64..5775198.73 rows=242032 width=40) (actual time=32919.038..46370.154 rows=216 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial GroupAggregate  (cost=5748936.64..5749995.53 rows=30254 width=40) (actual time=72500.407..85338.759 rows=24 loops=9)
+               ->  Partial GroupAggregate  (cost=5748936.64..5749995.53 rows=30254 width=40) (actual time=32702.432..45295.984 rows=24 loops=9)
                      Group Key: (date_part('hour'::text, pickup_datetime))
-                     ->  Sort  (cost=5748936.64..5749012.28 rows=30254 width=30) (actual time=71848.582..74664.674 rows=15308543 loops=9)
+                     ->  Sort  (cost=5748936.64..5749012.28 rows=30254 width=30) (actual time=32091.180..34598.766 rows=15308543 loops=9)
                            Sort Key: (date_part('hour'::text, pickup_datetime))
-                           Sort Method: quicksort  Memory: 1561308kB
-                           ->  Parallel Seq Scan on trips  (cost=0.00..5746685.01 rows=30254 width=30) (actual time=5694.303..67392.544 rows=15308543 loops=9)
+                           Sort Method: quicksort  Memory: 1667814kB
+                           ->  Parallel Seq Scan on trips  (cost=0.00..5746685.01 rows=30254 width=30) (actual time=0.059..28272.927 rows=15308543 loops=9)
                                  Filter: ((trip_distance > '0'::numeric) AND (dropoff_datetime > pickup_datetime) AND (cab_type_id = 1) AND ((fare_amount / trip_distance) >= '2'::numeric) AND ((fare_amount / trip_distance) <= '10'::numeric
 ))
                                  Rows Removed by Filter: 3063318
- Planning time: 0.540 ms
- Execution time: 85921.527 ms
+ Planning time: 0.498 ms
+ Execution time: 46405.897 ms
 (18 rows)
 
-Time: 85923.444 ms
+Time: 46407.542 ms
 
 
 /* Query 8 average speed of Yellow taxi trips by day of week*/
@@ -332,32 +333,34 @@ ORDER  BY dow;
    6 | 12.0129673074454
 (7 rows)
 
+Time: 45927.737 ms
+
                                                                                                                     QUERY PLAN
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---
- Finalize GroupAggregate  (cost=5796842.25..5802271.71 rows=240948 width=16) (actual time=88396.092..88396.110 rows=7 loops=1)
+ Finalize GroupAggregate  (cost=5796842.25..5802271.71 rows=240948 width=16) (actual time=47823.304..47823.331 rows=7 loops=1)
    Group Key: (date_part('dow'::text, pickup_datetime))
-   ->  Sort  (cost=5796842.25..5797447.33 rows=242032 width=40) (actual time=88396.058..88396.064 rows=63 loops=1)
+   ->  Sort  (cost=5796842.25..5797447.33 rows=242032 width=40) (actual time=47823.280..47823.291 rows=63 loops=1)
          Sort Key: (date_part('dow'::text, pickup_datetime))
          Sort Method: quicksort  Memory: 33kB
-         ->  Gather  (cost=5749936.64..5775198.73 rows=242032 width=40) (actual time=76576.436..88395.971 rows=63 loops=1)
+         ->  Gather  (cost=5749936.64..5775198.73 rows=242032 width=40) (actual time=35547.382..47823.190 rows=63 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial GroupAggregate  (cost=5748936.64..5749995.53 rows=30254 width=40) (actual time=76686.213..87945.512 rows=7 loops=9)
+               ->  Partial GroupAggregate  (cost=5748936.64..5749995.53 rows=30254 width=40) (actual time=35286.711..46932.583 rows=7 loops=9)
                      Group Key: (date_part('dow'::text, pickup_datetime))
-                     ->  Sort  (cost=5748936.64..5749012.28 rows=30254 width=30) (actual time=74669.444..77183.356 rows=15308543 loops=9)
+                     ->  Sort  (cost=5748936.64..5749012.28 rows=30254 width=30) (actual time=33441.352..35911.216 rows=15308543 loops=9)
                            Sort Key: (date_part('dow'::text, pickup_datetime))
-                           Sort Method: quicksort  Memory: 1577801kB
-                           ->  Parallel Seq Scan on trips  (cost=0.00..5746685.01 rows=30254 width=30) (actual time=5812.766..70520.400 rows=15308543 loops=9)
+                           Sort Method: quicksort  Memory: 1633730kB
+                           ->  Parallel Seq Scan on trips  (cost=0.00..5746685.01 rows=30254 width=30) (actual time=0.045..29892.281 rows=15308543 loops=9)
                                  Filter: ((trip_distance > '0'::numeric) AND (dropoff_datetime > pickup_datetime) AND (cab_type_id = 1) AND ((fare_amount / trip_distance) >= '2'::numeric) AND ((fare_amount / trip_distance) <= '10'::numeric
 ))
                                  Rows Removed by Filter: 3063318
- Planning time: 0.398 ms
- Execution time: 88437.757 ms
+ Planning time: 0.338 ms
+ Execution time: 48665.832 ms
 (18 rows)
 
-Time: 88439.292 ms
+Time: 48667.410 ms
 
 
 /* Query 9 average speed of Yellow taxi trips by day of week in bounding box*/
@@ -387,31 +390,31 @@ ORDER  BY dow;
    6 | 6.54114638182639
 (7 rows)
 
-Time: 56728.137 ms
+Time: 15463.317 ms
 
                                                                                                                                                                                                       QUERY PLAN
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
- Finalize GroupAggregate  (cost=5956464.09..5956736.89 rows=12123 width=16) (actual time=57318.968..57318.992 rows=7 loops=1)
+ Finalize GroupAggregate  (cost=5956464.09..5956736.89 rows=12123 width=16) (actual time=14849.332..14849.349 rows=7 loops=1)
    Group Key: (date_part('dow'::text, pickup_datetime))
-   ->  Sort  (cost=5956464.09..5956494.41 rows=12128 width=40) (actual time=57318.939..57318.950 rows=63 loops=1)
+   ->  Sort  (cost=5956464.09..5956494.41 rows=12128 width=40) (actual time=14849.322..14849.326 rows=63 loops=1)
          Sort Key: (date_part('dow'::text, pickup_datetime))
          Sort Method: quicksort  Memory: 33kB
-         ->  Gather  (cost=5954375.58..5955641.44 rows=12128 width=40) (actual time=56150.469..57318.857 rows=63 loops=1)
+         ->  Gather  (cost=5954375.58..5955641.44 rows=12128 width=40) (actual time=13734.341..14849.273 rows=63 loops=1)
                Workers Planned: 8
                Workers Launched: 8
-               ->  Partial GroupAggregate  (cost=5953375.58..5953428.64 rows=1516 width=40) (actual time=56187.807..57254.069 rows=7 loops=9)
+               ->  Partial GroupAggregate  (cost=5953375.58..5953428.64 rows=1516 width=40) (actual time=13709.619..14738.408 rows=7 loops=9)
                      Group Key: (date_part('dow'::text, pickup_datetime))
-                     ->  Sort  (cost=5953375.58..5953379.37 rows=1516 width=30) (actual time=55943.363..56191.380 rows=1509889 loops=9)
+                     ->  Sort  (cost=5953375.58..5953379.37 rows=1516 width=30) (actual time=13483.338..13692.848 rows=1509889 loops=9)
                            Sort Key: (date_part('dow'::text, pickup_datetime))
-                           Sort Method: quicksort  Memory: 166816kB
-                           ->  Parallel Seq Scan on trips  (cost=0.00..5953295.49 rows=1516 width=30) (actual time=5456.861..55277.197 rows=1509889 loops=9)
+                           Sort Method: quicksort  Memory: 177272kB
+                           ->  Parallel Seq Scan on trips  (cost=0.00..5953295.49 rows=1516 width=30) (actual time=0.082..13073.167 rows=1509889 loops=9)
                                  Filter: ((pickup_longitude >= '-74.007511'::numeric) AND (pickup_longitude <= '-73.983479'::numeric) AND (pickup_latitude >= 40.7105) AND (pickup_latitude <= 40.731071) AND (trip_distance > '0'::numeric) AN
 D (dropoff_datetime > pickup_datetime) AND (cab_type_id = 1) AND ((fare_amount / trip_distance) >= '2'::numeric) AND ((fare_amount / trip_distance) <= '10'::numeric))
                                  Rows Removed by Filter: 16861973
- Planning time: 0.820 ms
- Execution time: 57340.071 ms
+ Planning time: 0.765 ms
+ Execution time: 15520.264 ms
 (18 rows)
 
-Time: 57342.069 ms
+Time: 15521.892 ms
