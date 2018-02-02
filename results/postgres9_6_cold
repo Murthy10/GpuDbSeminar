@@ -6,32 +6,32 @@ EXPLAIN SELECT cab_type_id,
 FROM   trips
 GROUP  BY 1;
 
-                               QUERY PLAN
--------------------------------------------------------------------------
- HashAggregate  (cost=7658436.80..7658436.82 rows=2 width=12)
-   Group Key: cab_type_id
-   ->  Seq Scan on trips  (cost=0.00..6831703.20 rows=165346720 width=4)
-(3 rows)
-
-Time: 3.042 ms
-
-                                                          QUERY PLAN
--------------------------------------------------------------------------------------------------------------------------------
- HashAggregate  (cost=7658436.80..7658436.82 rows=2 width=12) (actual time=66472.268..66472.269 rows=2 loops=1)
-   Group Key: cab_type_id
-   ->  Seq Scan on trips  (cost=0.00..6831703.20 rows=165346720 width=4) (actual time=0.061..29713.990 rows=165346754 loops=1)
- Planning time: 0.142 ms
- Execution time: 66472.358 ms
-(5 rows)
-
  cab_type_id |   count
 -------------+-----------
-           2 |  19233765
            1 | 146112989
+           2 |  19233765
 (2 rows)
 
-Time: 53898.293 ms
+Time: 52401.329 ms
 
+                                                                       QUERY PLAN
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ Finalize GroupAggregate  (cost=5489258.42..5489258.56 rows=2 width=12) (actual time=51011.368..51011.370 rows=2 loops=1)
+   Group Key: cab_type_id
+   ->  Sort  (cost=5489258.42..5489258.46 rows=16 width=12) (actual time=51011.362..51011.363 rows=18 loops=1)
+         Sort Key: cab_type_id
+         Sort Method: quicksort  Memory: 25kB
+         ->  Gather  (cost=5489256.48..5489258.10 rows=16 width=12) (actual time=51011.207..51011.303 rows=18 loops=1)
+               Workers Planned: 8
+               Workers Launched: 8
+               ->  Partial HashAggregate  (cost=5488256.48..5488256.50 rows=2 width=12) (actual time=51006.474..51006.475 rows=2 loops=9)
+                     Group Key: cab_type_id
+                     ->  Parallel Seq Scan on trips  (cost=0.00..5384915.32 rows=20668232 width=4) (actual time=0.166..46883.256 rows=18371862 loops=9)
+ Planning time: 0.213 ms
+ Execution time: 51030.576 ms
+(13 rows)
+
+Time: 51031.479 ms
 
 
 
@@ -41,32 +41,6 @@ EXPLAIN ANALYZE SELECT passenger_count,
 FROM   trips
 GROUP  BY 1;
 
- passenger_count |         avg
------------------+---------------------
-               6 | 15.8329675572448687
-               4 | 16.5638672088064660
-               5 | 16.1169030236629691
-               8 | 29.0438323353293413
-               1 | 15.7501588954764347
-               2 | 16.7674625917423321
-               9 | 53.8326688102893891
-               3 | 16.3802158293606953
-               0 | 15.7397073669414095
-               7 | 30.7914691151919866
-(10 rows)
-
-Time: 119695.542 ms
-
-                                                           QUERY PLAN
---------------------------------------------------------------------------------------------------------------------------------
- HashAggregate  (cost=7658436.80..7658436.89 rows=7 width=36) (actual time=129914.256..129914.266 rows=10 loops=1)
-   Group Key: passenger_count
-   ->  Seq Scan on trips  (cost=0.00..6831703.20 rows=165346720 width=10) (actual time=0.020..29699.045 rows=165346754 loops=1)
- Planning time: 0.190 ms
- Execution time: 129914.352 ms
-(5 rows)
-
-Time: 129915.236 ms
 
 
 
@@ -78,21 +52,6 @@ FROM   trips
 GROUP  BY 1,
           2;
 
-           passenger_count | date_part |   count
------------------+-----------+-----------
-               8 |      2015 |       668
-               5 |      2015 |   8691048
-               6 |      2015 |   5421796
-               4 |      2015 |   3105718
-               0 |      2015 |     46953
-               7 |      2015 |       599
-               9 |      2015 |       311
-               2 |      2015 |  22349143
-               1 |      2015 | 119150088
-               3 |      2015 |   6580430
-(10 rows)
-
-Time: 99492.667 ms
 
 
 
