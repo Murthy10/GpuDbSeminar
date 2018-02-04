@@ -24,7 +24,7 @@ line_chart.render_to_png('query_1.png')
 
 def chart_print(title, mapd, postgres_9_6, postgres_10, file_name):
     line_chart = pygal.Bar(print_values=True, print_values_position='top', y_title='milliseconds')
-    line_chart.title = title
+    #line_chart.title = title
     line_chart.x_labels = ['cold', 'warm', 'cold', 'warm', 'cold', 'warm']
     line_chart.add('MapD CE 3.0', mapd)
     line_chart.add('PostgreSQL 9.6', postgres_9_6)

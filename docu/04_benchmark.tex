@@ -1,5 +1,5 @@
 \chapter{Benchmark}
-This section does concerned with a benchmark between the two databases PostgreSQL 10.0 and MapD 3.3.1.
+This section does concerned with a benchmark between the two databases PostgreSQL 9.6, PostgreSQL 10.0 and MapD CE 3.0.
 The dataset is based on a part of the New York City Taxi and Limousine Commission (TLC) Trip Record Data \cite{nyc}.
 All queries were executed on the same server.
 
@@ -36,7 +36,7 @@ Due to the fact that not all GPU databases are able to handle queries based on d
 we had to shrink the dataset fitting into the available memory.
 
 The GPU used on the server for the benchmark is a Nvidia Tesla K40m with 12 GB memory.
-Hence we used the yellow and green taxi trip data of the year 2015, that has a size of 12 GB, too.
+Hence we used the yellow and green taxi trip data of the year 2015, that has a size of 25 GB, too.
 Consequently all queries fit into the GPU memory.
 
 
@@ -136,158 +136,142 @@ ORDER  BY dow;
 \newpage
 \section{Results}
 As already mentioned the queries of the benchmark were applied on a database without GPU acceleration,
-in our case PostgreSQL 10.0 with the PostGIS 2.4 extension and a on MapD 3.3.1 a GPU powered database.
+in our case PostgreSQL 9.6 and PostgreSQL 10.0.
+Furthermore on MapD CE 3.0 a GPU powered database.
 The dataset was introduced in section~\ref{sec:dataset} and the queries are listed in the section~\ref{sec:queries}.
+The benchmark has been executed on a server with the specifications as you can see in table \ref{tab:hardware}.
 
-\subsection{PostgreSQL vs. MapD cold}
-The diagram \ref{fig:cold_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD at the first time of execution (cold).
-That means there might are no caching effects influencing the measurement.
 
-\begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.59\textwidth}
-    \centering
-     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/cold_postgres_vs_mapd.png}
-    \captionof{figure}{Diagram PostgreSQL vs. MapD cold \\ (logarithmic scale)}
-    \label{fig:cold_postgres_vs_mapd}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.39\textwidth}
-    \centering
-  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
-    \hline
-    Query & PostgreSQL [ms] & MapD [ms] \\
-    \hline
-    1 & 64878 & 203 \\
-    2 & 74404 & 456 \\
-    3 & 145749 & 742 \\
-    4 & 172592 & 1431 \\
-    5 & 2556 & 663 \\
-    6 & 89029 & 5756 \\
-    7 & 150823 & 119 \\
-    8 & 152883 & 315 \\
-    9 & 87535 & 243 \\
-    \hline
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+CPU & Intel XEON E5-2670 v2 @ 2.50GHz (40 cores)\\ \hline
+GPU & Nvidia Tesla K40m (12 GB)\\ \hline
+RAM & 512 GB\\
+\hline
 \end{tabular}
-      \captionof{table}{Data PostgreSQL vs. MapD cold}
-            \label{tab:cold_postgres_vs_mapd}
-    \end{minipage}
- \end{minipage}
+\caption{Hardware specification}
+\label{tab:hardware}
+\end{table}
+
+\subsection{Charts}
+The following bar charts show the results of the benchmark.
+For each query there is chart and chart has six bars.
+There are two bars for each database, one for the first time of execution (cold) and one for the mean of the next 5 executions (warm).
+For PostgreSQL we used the pg\_prewarm extension to load the data into the memory for the warm execution.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_1.png}
+    \caption{Query 1}
+    \label{fig:query_1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_2.png}
+    \caption{Query 2}
+    \label{fig:query_2}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_3.png}
+    \caption{Query 3}
+    \label{fig:query_3}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_4.png}
+    \caption{Query 4}
+    \label{fig:query_4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_5.png}
+    \caption{Query 5}
+    \label{fig:query_5}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_6.png}
+    \caption{Query 6}
+    \label{fig:query_6}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_7.png}
+    \caption{Query 7}
+    \label{fig:query_7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_8.png}
+    \caption{Query 8}
+    \label{fig:query_8}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth,keepaspectratio]{charts/query_9.png}
+    \caption{Query 9}
+    \label{fig:query_9}
+\end{figure}
+
+\subsection{Data}
+The table \ref{tab:data} show the results of the queries in tabular format. The unit of the numbers is milliseconds.
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{1.2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Query & MapD cold & MapD warm & Postgres 9.6 cold & Postgres 9.6 warm & Postgres 10 cold & Postgres 10 warm \\
+\hline
+1 & 203 & 41 & 51031 & 8318 & 51254 & 8856 \\
+2 & 456 & 223 & 56713 & 13766 & 54547 & 11818 \\
+3 & 742 & 412 & 167725 & 110866 & 150368 & 87748 \\
+4 & 1431 & 840 & 195999 & 158339 & 169925 & 110240 \\
+5 & 663 & 25 & 974 & 1 & 483 & 418 \\
+6 & 5756 & 149 & 57356 & 15346 & 56113 & 12968 \\
+7 & 119 & 86 & 85488 & 44576 & 81477 & 34537 \\
+8 & 315 & 115 & 88437 & 45927 & 82393 & 35443 \\
+9 & 243 & 131 & 56728 & 15463 & 54953 & 13267 \\
+\hline
+\end{tabular}
+\caption{Data}
+\label{tab:data}
+\end{table}
+
+\subsection{Explain and analyse}
+PostgreSQL provides the possibility to show the execution plan.
+And an interesting fact is that no query used more than 8 workers.
+An example is displayed at figure \ref{fig:explain}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth,keepaspectratio]{images/explain_p10_q7.png}
+    \caption{Explain and analysem, PostgresSQL 10}
+    \label{fig:explain}
+\end{figure}
+
+Several attempts didn't lead to a higher degree of parallelism.
+To reproduce the achieved results there are the configurations of the PostgreSQL database at section \ref{sec:config}.
 
 \newpage
-\subsection{PostgreSQL vs. MapD warm}
-The diagram \ref{fig:warm_postgres_vs_mapd} compares the query duration of PostgreSQL and MapD after the first time of execution (warm).
-That means there might are caching effects speeding up the measurement.
-The query was processed 5 times and the values listed in the table \ref{tab:warm_postgres_vs_mapd} are the mean time of these measurements.
-
-\begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.59\textwidth}
-    \centering
-     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/warm_postgres_vs_mapd.png}
-    \captionof{figure}{Diagram PostgreSQL vs. MapD warm \\ (logarithmic scale)}
-    \label{fig:warm_postgres_vs_mapd}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.39\textwidth}
-    \centering
-  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
-    \hline
-    Query & PostgreSQL [ms] & MapD [ms] \\
-    \hline
-    1 & 62684 & 41 \\
-    2 & 75140 & 223 \\
-    3 & 142338 & 412 \\
-    4 & 172052 & 840 \\
-    5 & 1685 & 25 \\
-    6 & 84439 & 149 \\
-    7 & 150073 & 86 \\
-    8 & 155107 & 115 \\
-    9 & 86060 & 131 \\
-    \hline
-\end{tabular}
-      \captionof{table}{Data PostgreSQL vs. MapD warm}
-            \label{tab:warm_postgres_vs_mapd}
-    \end{minipage}
- \end{minipage}
-
-
-
-\subsection{PostgreSQL cold vs. warm}
-The diagram \ref{fig:postgres_cold_vs_warm} compares the query duration of PostgreSQL at the first execution with the mean of the next 5 executions.
-
- \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.59\textwidth}
-    \centering
-     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/postgres_cold_vs_warm.png}
-    \captionof{figure}{Diagram PostgreSQL cold vs. PostgreSQL warm}
-    \label{fig:postgres_cold_vs_warm}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.39\textwidth}
-    \centering
-  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
-    \hline
-    Query & PostgreSQL cold [ms] & PostgreSQL warm [ms] \\
-    \hline
-    1 & 64878 & 62684 \\
-    2 & 74404 & 75140 \\
-    3 & 145749 & 142338 \\
-    4 & 172592 & 172052 \\
-    5 & 2556 & 1685 \\
-    6 & 89029 & 84439 \\
-    7 & 150823 & 150073 \\
-    8 & 152883 & 155107 \\
-    9 & 87535 & 86060 \\
-    \hline
-\end{tabular}
-      \captionof{table}{Data PostgreSQL cold vs. PostgreSQL warm}
-            \label{tab:postgres_cold_vs_warm}
-    \end{minipage}
- \end{minipage}
-
-
-\newpage
-\subsection{MapD cold vs. warm}
-The diagram \ref{fig:mapd_cold_vs_warm} compares the query duration of MapD at the first execution with the mean of the next 5 executions.
-
-
-  \begin{minipage}{\textwidth}
-  \begin{minipage}[b]{0.59\textwidth}
-    \centering
-     \includegraphics[width=1.0\textwidth,height=1.0\textheight,keepaspectratio]{images/mapd_cold_vs_warm.png}
-    \captionof{figure}{Diagram MapD cold vs. MapD warm}
-    \label{fig:mapd_cold_vs_warm}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[b]{0.39\textwidth}
-    \centering
-  \begin{tabular}{ |p{1cm}|p{2cm}|p{2cm}| }
-    \hline
-    Query & MapD cold [ms] & MapD warm [ms]\\
-    \hline
-    1 & 203 & 41 \\
-    2 & 456 & 223 \\
-    3 & 742 & 412 \\
-    4 & 1431 & 840 \\
-    5 & 663 & 25 \\
-    6 & 5756 & 149 \\
-    7 & 119 & 86 \\
-    8 & 315 & 115 \\
-    9 & 243 & 131 \\
-    \hline
-\end{tabular}
-      \captionof{table}{Data MapD cold vs. MapD warm}
-            \label{tab:mapd_cold_vs_warm}
-    \end{minipage}
- \end{minipage}
-
-
 \subsection{Conclusion}
-As you can see in the diagrams \ref{fig:cold_postgres_vs_mapd} and \ref{fig:warm_postgres_vs_mapd}, MapD is up to 1500 times faster then PostgreSQL.
-I even had to use a logarithmic scale to make the duration of the PostgreSQL queries viewable on the diagrams.
+MapD is on nearly every query faster than PostgreSQL 9.6 and PostgreSQL 10.
+Only on query 5 as you can see in figure \ref{fig:query_5} PostgreSQL is more performant the MapD.
+Since there is a LIMIT statement in the query and PostgreSQL is able to stop after the limit is reached.
 The performance of MapD is really astonishing.
 The huge speedup compared to PostgreSQL might due to the fact that MapD is an in-memory database and the GPU acceleration is a big improvement as well.
 Further, the MapD usage of a column store instead of a row-oriented storage like PostgreSQL does increase the performance, too.
 And the fact that MapD is developed for an analytical purpose and doesn't support transaction in contrast to PostgreSQL must not be forgotten.
 Another interesting insight can be observed at the comparison of the query execution at the first time (cold) or the following executions (warm).
-There is no significant difference between the cold and warm execution of the PostgreSQL queries shown at \ref{fig:postgres_cold_vs_warm}.
-In contrast to PostgreSQL, all warm queries were faster than the cold ones as illustrated at \ref{fig:mapd_cold_vs_warm}.
+The pg\_prewarm extension accelerate the PostgreSQL massively.

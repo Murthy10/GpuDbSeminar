@@ -1,3 +1,4 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
 \contentsline {chapter}{\numberline {2}GPU Databases}{3}{chapter.2}
 \contentsline {paragraph}{\nonumberline Strengths}{3}{section*.3}
@@ -50,16 +51,19 @@
 \contentsline {subsection}{\numberline {4.1.2}Data subset}{14}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Queries}{15}{section.4.2}
 \contentsline {section}{\numberline {4.3}Results}{17}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}PostgreSQL vs. MapD cold}{17}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}PostgreSQL vs. MapD warm}{18}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}PostgreSQL cold vs. warm}{18}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}MapD cold vs. warm}{19}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Conclusion}{19}{subsection.4.3.5}
-\contentsline {chapter}{\numberline {A}Repositories}{21}{appendix.A}
-\contentsline {section}{\numberline {A.1}MSE-Database-Seminar-GPU-Databases}{21}{section.A.1}
-\contentsline {subsubsection}{\nonumberline Content}{21}{section*.40}
-\contentsline {paragraph}{\nonumberline PostgreSQL with the PostGIS extension}{21}{section*.41}
-\contentsline {paragraph}{\nonumberline MapD}{21}{section*.42}
-\contentsline {paragraph}{\nonumberline PG-Strom}{21}{section*.43}
-\contentsline {section}{\numberline {A.2}nyc-taxi-data}{22}{section.A.2}
-\contentsline {section}{\numberline {A.3}GpuDbSeminar}{22}{section.A.3}
+\contentsline {subsection}{\numberline {4.3.1}Charts}{17}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Data}{22}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Explain and analyse}{22}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Conclusion}{23}{subsection.4.3.4}
+\contentsline {chapter}{\numberline {A}Repositories}{25}{appendix.A}
+\contentsline {section}{\numberline {A.1}MSE-Database-Seminar-GPU-Databases}{25}{section.A.1}
+\contentsline {subsubsection}{\nonumberline Content}{25}{section*.52}
+\contentsline {paragraph}{\nonumberline PostgreSQL with the PostGIS extension}{25}{section*.53}
+\contentsline {paragraph}{\nonumberline MapD}{25}{section*.54}
+\contentsline {paragraph}{\nonumberline PG-Strom}{25}{section*.55}
+\contentsline {section}{\numberline {A.2}nyc-taxi-data}{26}{section.A.2}
+\contentsline {section}{\numberline {A.3}GpuDbSeminar}{26}{section.A.3}
+\contentsline {chapter}{\numberline {B}PostgreSQL configuration}{27}{appendix.B}
+\contentsline {section}{\numberline {B.1}PostgreSQL 9.6}{27}{section.B.1}
+\contentsline {section}{\numberline {B.2}PostgreSQL 10}{28}{section.B.2}
+\contentsline {chapter}{Bibliography}{29}{section*.57}
