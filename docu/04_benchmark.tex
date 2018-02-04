@@ -48,14 +48,14 @@ All the queries are listed below, the used syntax is able to run on MapD. \\
 
 
 \begin{lstlisting}[language=sql, caption={Query 1, Counts all the yellow taxi trips},captionpos=b]
-SELECT passenger_count, Avg(total_amount)
+SELECT cab_type_id, Count(*)
 FROM   trips
 GROUP  BY 1;
 \end{lstlisting}
 
 
 \begin{lstlisting}[language=sql, caption={Query 2, Calculates the average passenger amount per trip},captionpos=b]
-SELECT cab_type_id, Count(*)
+SELECT passenger_count, Avg(total_amount)
 FROM   trips
 GROUP  BY 1;
 \end{lstlisting}
